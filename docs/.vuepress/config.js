@@ -22,7 +22,7 @@ module.exports = {
         docsBranch: 'master',
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页',
-        // serviceWorker: {updatePopup: true},
+        serviceWorker: {updatePopup: true},
     },
     devServer: {
         open: true
