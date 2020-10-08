@@ -16,6 +16,7 @@ module.exports = {
         sidebar: require('./sidebar'),
         sidebarDepth: 2,
         lastUpdated: '上次更新 ',
+        docsDir: 'docs',
         repo: 'https://github.com/tuojinhui/tuojinhui.github.io',
         repoLabel: 'GitHub',
         docsBranch: 'master',
