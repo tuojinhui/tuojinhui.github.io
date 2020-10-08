@@ -15,7 +15,7 @@ module.exports = {
         nav: require('./nav'),
         sidebar: require('./sidebar'),
         sidebarDepth: 2,
-        lastUpdated: '上次更新: ',
+        lastUpdated: '上次更新 ',
         repo: 'https://github.com/tuojinhui/tuojinhui.github.io',
         repoLabel: 'GitHub',
         docsBranch: 'master',
@@ -32,14 +32,9 @@ module.exports = {
     },
     plugins: [
         ['@vuepress/back-to-top'],
-        ['@vuepress/pwa', {
-            serviceWorker: true,
-            updatePopup: {
-                message: '有新内容更新啦~',
-                buttonText: '立即获取新内容'
-            }
-        }],
-        ['@vuepress/medium-zoom']
+        ['@vuepress/last-updated'],
+        ['@vuepress/medium-zoom'],
+        ['@vuepress/pwa'],
         // ['vuepress-plugin-baidu-autopush', true]
     ]
 }
