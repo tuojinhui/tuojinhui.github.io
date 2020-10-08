@@ -25,10 +25,10 @@ jobs:
 
 
     # 打包并推送到 githubpages
-    - name: Build and Deploy GitHub Pages
-      uses: tuojinhui/tuojinhui.github.io@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build/.vuepress/dist
-        BUILD_SCRIPT: npm install && npm run docs:build
+#    - name: Build and Deploy GitHub Pages
+#      uses: tuojinhui/tuojinhui.github.io@master
+#      env:
+#        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#        BRANCH: gh-pages
+#        FOLDER: build/.vuepress/dist
+#        BUILD_SCRIPT: npm install && npm run docs:build
