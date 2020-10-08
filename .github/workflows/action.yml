@@ -1,33 +1,27 @@
-name: CI
-
-# 控制如何触发事件，这里针对 master 分支
+name: Build and Deploy
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-# 一个工作流运行是由一个或多个作业组成的，这些作业可以连续或并行运行。
 jobs:
-  # 该工作流包含一个名为 "build " 的单一工作。
-  build:
-    # 工作要运行的运行器类型。
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    # 步骤代表了作为工作的一部分将要执行的任务序列
     steps:
-      # 签出你在 $GITHUB_WORKSPACE 下的仓库，这样你的工作就可以访问它。
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
 
-      # 使用 runners shell 运行一条命令。
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install
+          npm run build
 
-      # 打包并推送到 githubpages
-      - name: 打包并推送到 gitHubPages
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build/.vuepress/dist
-          BUILD_SCRIPT: npm install && npm run docs:build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build/.vuepress/dist # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
