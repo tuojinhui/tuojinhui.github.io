@@ -22,7 +22,7 @@ module.exports = {
         docsBranch: 'master',
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页',
-        serviceWorker: {updatePopup: true},
+        // serviceWorker: {updatePopup: true},
     },
     devServer: {
         open: true
@@ -35,6 +35,12 @@ module.exports = {
         ['@vuepress/back-to-top'],
         ['@vuepress/last-updated'],
         ['@vuepress/medium-zoom'],
-        ['@vuepress/pwa']
+        ['@vuepress/pwa', {
+            serviceWorker: true,
+            updatePopup: {
+                message: '有新内容更新啦~',
+                buttonText: '立即获取新内容'
+            }
+        }],
     ]
 }
