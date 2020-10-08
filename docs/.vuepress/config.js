@@ -34,7 +34,6 @@ module.exports = {
         ['@vuepress/back-to-top'],
         ['@vuepress/last-updated'],
         ['@vuepress/medium-zoom'],
-        ['@vuepress/pwa'],
-        // ['vuepress-plugin-baidu-autopush', true]
+        ['@vuepress/pwa']
     ]
 }
