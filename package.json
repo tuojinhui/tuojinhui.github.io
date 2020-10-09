@@ -8,7 +8,10 @@
     "docs:build": "vuepress build docs",
     "build": "vuepress build docs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vssue/api-github-v3": "^1.4.4",
+    "@vssue/vuepress-plugin-vssue": "^1.4.6"
+  },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.6.0",
     "@vuepress/plugin-last-updated": "^1.6.0",
