@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "7e4c32800aed5a09b4cf440219142799"
+    "revision": "117c495bd2b16bad67a4e7d371ce0c02"
   },
   {
     "url": "assets/css/0.styles.e95cc0cd.css",
@@ -110,8 +110,8 @@ self.__precacheManifest = [
     "revision": "e97d1b5ecd4b84082a04efe0c9fcdea2"
   },
   {
-    "url": "assets/js/app.1d1c0351.js",
-    "revision": "32890aa6a9bf7bc577a08d14f7611bc4"
+    "url": "assets/js/app.ec4bae02.js",
+    "revision": "82e4f170f90f09fd06c18652d2a0bf1a"
   },
   {
     "url": "css/scrollbar.css",
@@ -119,15 +119,15 @@ self.__precacheManifest = [
   },
   {
     "url": "element/element1/index.html",
-    "revision": "d23c2d2f5c3275deb5a7ff9fc40fd1e1"
+    "revision": "2ce5436226b319ce89792f5144c73bea"
   },
   {
     "url": "element/element2/index.html",
-    "revision": "df41beb26ac14d50720bc992226b5776"
+    "revision": "939604a613d9275678d24547e48dc3ed"
   },
   {
     "url": "element/index.html",
-    "revision": "ab56140a52bff9eb086067817026fb0e"
+    "revision": "1da5b1bcc8136c1dfcf766ebb889a691"
   },
   {
     "url": "image/java8.jpg",
@@ -135,31 +135,31 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "19bba6c63aa41ddaa91d3fd88c567ec4"
+    "revision": "703a15fb95dcac6a6a0fc6e4149c33f0"
   },
   {
     "url": "java/index.html",
-    "revision": "e3ccc3154027ef242af9574366a8aa7e"
+    "revision": "6ba2ef5cb84f421dc113d4c131d6e9e1"
   },
   {
     "url": "java/java1/index.html",
-    "revision": "21586950621a036c63ac7d9367aa1a49"
+    "revision": "81e8737cf316ebe36306e586549cfcb6"
   },
   {
     "url": "java/java2/index.html",
-    "revision": "4c0d4888699d92e8846bfd9a438b6b95"
+    "revision": "90a51542670a5cb4a9f5511ca10873f5"
   },
   {
     "url": "vue/index.html",
-    "revision": "07f9a6650dc845174e4e5a64d6a6f6bf"
+    "revision": "a93bacb7f20b6f8e4b551f714e2b6158"
   },
   {
     "url": "vue/vue1/index.html",
-    "revision": "9d5ebbb76d569e0aa8c19ab572d2a234"
+    "revision": "3d294f6aaf4766f4373403879139d16c"
   },
   {
     "url": "vue/vue2/index.html",
-    "revision": "42c1775dfc8473f8d6c84d003ee76f2e"
+    "revision": "948903ed63aa11894c6973e7cf822867"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
