@@ -1,7 +1,7 @@
 {
-  "name": "vuepress-starter",
+  "name": "tuojinhui.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "for github pages",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
