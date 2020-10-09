@@ -46,8 +46,8 @@ module.exports = {
             platform: 'github-v4',
             owner: 'tuojinhui',
             repo: 'https://tuojinhui.github.io',
-            clientId: 'Iv1.51afa256fd1afe89',
-            clientSecret: 'f49621f9c307141a862d77962edba0b6699f0ca9',
+            clientId: '0c5e5feb0ba9e8b9eab8',
+            clientSecret: '5447f009f0e1826b4bcadd5b38d86521faf30768',
         },]
     ]
 }
