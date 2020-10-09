@@ -38,6 +38,10 @@
 这是一个危险警告
 :::
 
+::: danger
+你是个傻逼
+:::
+
 ``` js
 export default {
   name: 'MyComponent',
