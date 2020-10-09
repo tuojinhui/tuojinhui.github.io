@@ -45,7 +45,7 @@ module.exports = {
         ['@vssue/vuepress-plugin-vssue', {
             platform: 'github',
             owner: 'tuojinhui',
-            repo: 'tuojinhui.github.io',
+            repo: 'https://tuojinhui.github.io',
             clientId: 'Iv1.51afa256fd1afe89',
             clientSecret: 'f49621f9c307141a862d77962edba0b6699f0ca9',
         },]
