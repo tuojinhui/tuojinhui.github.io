@@ -3,9 +3,10 @@ module.exports = [
     {
         text: '博文',
         items: [
+            {text: 'Element', link: '/element/'},
             {text: 'Java', link: '/java/'},
+            {text: 'MySQL', link: '/mysql/'},
             {text: 'Vue', link: '/vue/'},
-            {text: 'Element', link: '/element/'}
         ]
     },
     {text: '关于', link: '/about/'},

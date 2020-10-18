@@ -2,9 +2,12 @@
 
 module.exports = {
 
+    '/element/': require('../element/sidebar'),
+
     '/java/': require('../java/sidebar'),
+
+    '/mysql/': require('../mysql/sidebar'),
 
     '/vue/': require('../vue/sidebar'),
 
-    '/element/': require('../element/sidebar'),
 }
