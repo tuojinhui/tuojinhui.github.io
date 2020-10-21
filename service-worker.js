@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "80808272a1642bdbd1f945494fc97e9f"
+    "revision": "a211df57e46040816ee2a951441c99a1"
   },
   {
     "url": "assets/css/0.styles.e95cc0cd.css",
@@ -54,8 +54,8 @@ self.__precacheManifest = [
     "revision": "c9a1fc65fd7c188e1f04fef479110337"
   },
   {
-    "url": "assets/js/14.49dfeb26.js",
-    "revision": "f95f02185f0ac400d8b46670b2f13d39"
+    "url": "assets/js/14.0a60c1c7.js",
+    "revision": "3d57abf57955ccbeaf0dcbfd51fb770c"
   },
   {
     "url": "assets/js/15.e988cc5b.js",
@@ -122,8 +122,8 @@ self.__precacheManifest = [
     "revision": "fe7ea1d4b2c887ed18751d1438ca6c5d"
   },
   {
-    "url": "assets/js/app.ec2b3529.js",
-    "revision": "e4f8621933b1154a200ffb28868afba0"
+    "url": "assets/js/app.6b23719c.js",
+    "revision": "b9128ee8fa895186db844dd97f54c4b7"
   },
   {
     "url": "css/scrollbar.css",
@@ -131,15 +131,15 @@ self.__precacheManifest = [
   },
   {
     "url": "element/element1/index.html",
-    "revision": "dfd9f304909372ff2c064cbab3a21be9"
+    "revision": "9aa320d71b02fa687501ff72b75d6975"
   },
   {
     "url": "element/element2/index.html",
-    "revision": "f6b79d02b5fef45d78586ffe755934bc"
+    "revision": "400814b87d4401a16dbb3cd1d1be4290"
   },
   {
     "url": "element/index.html",
-    "revision": "73b12166ddf8c35dc4042c329d81e731"
+    "revision": "6550d2967e169a80a73406f009745b50"
   },
   {
     "url": "image/java8.jpg",
@@ -147,43 +147,43 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "8ca6ff51107eee15a9b87912f6b1fc68"
+    "revision": "66be1af5087f8098f734d03d13ee7347"
   },
   {
     "url": "java/index.html",
-    "revision": "095d01dead16d2b6c20d43bd64ee948c"
+    "revision": "4d0bc11d67fe0c83d7f543c7627445f3"
   },
   {
     "url": "java/java1/index.html",
-    "revision": "9f9a4290a3de8854494e750984003d0e"
+    "revision": "81dd1458619514e83327eaf6d56038c1"
   },
   {
     "url": "java/java2/index.html",
-    "revision": "5807fdbe6c6adfb689200cbc4eb4b591"
+    "revision": "340a7fe6a1ece9de81a163ef1a029ca8"
   },
   {
     "url": "mysql/index.html",
-    "revision": "811ea933fc865463b5c728a823c0cfd6"
+    "revision": "6b40c2eac2d4ae20b999c667fde83a07"
   },
   {
     "url": "mysql/mysql1/index.html",
-    "revision": "cfa0048459f4b1f72255dbf2b787aef4"
+    "revision": "462dee50ea4551968efcb6b61d366b80"
   },
   {
     "url": "mysql/mysql2/index.html",
-    "revision": "4d34b6f4ec1430146e0fee6afb637f4e"
+    "revision": "ee7588a56e97d47935125cd8fe3618ce"
   },
   {
     "url": "vue/index.html",
-    "revision": "2d33268dae9db16c275000284d9b8969"
+    "revision": "24bbc5fd87354579bca36872289d8955"
   },
   {
     "url": "vue/vue1/index.html",
-    "revision": "1256a05821ab229d6ea0ccac6ce5236a"
+    "revision": "5961894414a8ab14dcde6b73a69213b0"
   },
   {
     "url": "vue/vue2/index.html",
-    "revision": "68b3ab64cd196b03304a5a32fcf4265c"
+    "revision": "f5b689c37d783c2cf17c14da18ad601e"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
