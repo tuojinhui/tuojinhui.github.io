@@ -4,7 +4,7 @@
 
 ```java
 
-final static Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
+final static java.util.regex.Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
 
 /**
  * 脱敏手机号
@@ -18,7 +18,7 @@ public static String desensitizationPhone(String phone) {
 ## 身份证号脱敏
 ```java
 
-final static Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
+final static java.util.regex.Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
 
 /**
  * 脱敏身份证号
