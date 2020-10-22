@@ -3,6 +3,7 @@
 ## 手机号脱敏
 
 ```java
+
 final static Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
 
 /**
@@ -11,10 +12,12 @@ final static Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
 public static String desensitizationPhone(String phone) {
     return Objects.isNull(phone) ? null : PATTERN_PHONE.matcher(phone).replaceAll("$1****$2");
 }
+
 ```
 
 ## 身份证号脱敏
 ```java
+
 final static Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
 
 /**
@@ -23,6 +26,7 @@ final static Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})"
 public static String desensitizationIdCard(String idCard) {
     return Objects.isNull(idCard) ? null : PATTERN_ID_CARD.matcher(idCard).replaceAll("$1****$2");
 }
+
 ```
 
 ::: warning
