@@ -1,6 +1,6 @@
 module.exports = [
     {
-        title: 'java侧边栏1',
+        title: 'JAVA知识点',
         collapsable: true,
         children: ['/java/java1/']
     },

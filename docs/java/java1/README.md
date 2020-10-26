@@ -6,9 +6,6 @@
 
     final static java.util.regex.Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
 
-    /**
-     * 脱敏手机号
-     */
     public static String desensitizationPhone(String phone) {
         return Objects.isNull(phone) ? null : PATTERN_PHONE.matcher(phone).replaceAll("$1****$2");
     }
@@ -20,9 +17,6 @@
 
     final static java.util.regex.Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
 
-    /**
-     * 脱敏身份证号
-     */
     public static String desensitizationIdCard(String idCard) {
         return Objects.isNull(idCard) ? null : PATTERN_ID_CARD.matcher(idCard).replaceAll("$1****$2");
     }
@@ -105,3 +99,39 @@
 无论是长整形或者单精度浮点型亦或双精度浮点型的数据转换为BigDecimal时，
 都建议先转换为对应的字符串，然后创建一个参数为字符串的BigDecimal实例。
 :::
+
+# 流排序
+
+```java 
+
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("111", "222", "333", "333", "222", "666", null, "");
+        list.stream().sorted(Comparator.nullsLast(Comparator.reverseOrder())).forEach(System.out::println);
+    }
+
+```
+::: warning
+案例展示的是null在末尾的逆序排序
+:::
+
+# 资源加载器
+
+```java 
+
+    public static void main(String[] args) {
+        final org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
+        RESOURCE_LOADER.getResource(org.springframework.core.io.ResourceLoader.CLASSPATH_URL_PREFIX + "");
+    }
+
+```
+
+# 路径匹配器
+
+```java 
+
+    public static void main(String[] args) {
+        org.springframework.util.PathMatcher matcher = new org.springframework.util.AntPathMatcher();
+        matcher.match("", "");
+    }
+
+```
