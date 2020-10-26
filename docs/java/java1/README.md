@@ -134,10 +134,10 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 
 ```java 
 
-    final static org.springframework.util.PathMatcher MACHER = new org.springframework.util.AntPathMatcher();
+    final static org.springframework.util.PathMatcher PATH_MATCHER = new org.springframework.util.AntPathMatcher();
 
     public static void main(String[] args) {
-        MACHER.match("", "");
+        PATH_MATCHER.match("", "");
     }
 
 ```
