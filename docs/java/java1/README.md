@@ -1,7 +1,6 @@
 # 信息整理
 
 ## 手机号脱敏
-
 ```java
 
     final static java.util.regex.Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
@@ -99,7 +98,6 @@
 :::
 
 ## 流排序
-
 ```java 
 
     public static void main(String[] args) {
@@ -114,7 +112,6 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 :::
 
 ## 资源加载器
-
 ```java 
 
     final static org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
@@ -131,7 +128,6 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 :::
 
 ## 路径匹配器
-
 ```java 
 
     final static org.springframework.util.PathMatcher PATH_MATCHER = new org.springframework.util.AntPathMatcher();
@@ -143,19 +139,20 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 ```
 
 ::: warning
-Ant风格路径表达式,匹配url有三种。
-
-| ------- |----------------------
-|  ?      | 匹配任何单字符         
-|  *      | 匹配0或者任意数量的字符 
-|  **     | 匹配0或者更多的目录     
-| ------- |----------------------
+Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * | 匹配0或者任意数量的字符 | ** | 匹配0或者更多的目录
 :::
 
-## 文件下载
+## 附件标识
+```java 
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        System.out.println(ContentDisposition.builder(org.apache.tomcat.util.http.fileupload.FileUploadBase.ATTACHMENT).filename(URLEncoder.encode("财务第一季度结算报表", StandardCharsets.UTF_8.name())).build().toString());
+    }
+
+```
 
 ::: warning
-[[toc]]https://www.rfc-editor.org/rfc/rfc6266.txt <Badge text="RFC6266"/>
+[rfc - 6266](https://www.rfc-editor.org/rfc/rfc6266.txt) <Badge text="RFC"/>
 :::
 
 
