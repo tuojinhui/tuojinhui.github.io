@@ -32,10 +32,10 @@
 ## 小数格式化(BigDecimal)
 ```java 
 
+    DecimalFormat DECIMALFORMAT = new DecimalFormat("000000000000");
+
     public static String formatAmount(BigDecimal amount) {
-        double doubleValue = amount.doubleValue();
-        DecimalFormat decimalFormat = new DecimalFormat("000000000000");
-        return decimalFormat.format(doubleValue);
+        return DECIMALFORMAT.format(amount.doubleValue());
     }
 
 ```
@@ -106,32 +106,40 @@
 
     public static void main(String[] args) {
         List<String> list = Arrays.asList("111", "222", "333", "333", "222", "666", null, "");
-        list.stream().sorted(Comparator.nullsLast(Comparator.reverseOrder())).forEach(System.out::println);
+        list.stream().filter(Objects::nonNull).sorted(Comparator.comparing(String::toString, Comparator.nullsLast(Comparator.reverseOrder()))).forEach(System.out::println);
     }
 
 ```
 ::: warning
-案例展示的是null在末尾的逆序排序
+Comparator.comparing需要传两个参数， Function函数式接口 和 Comparator比较器，
+Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序排序
 :::
 
 # 资源加载器
 
 ```java 
 
+    final static org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
+
     public static void main(String[] args) {
-        final org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
-        RESOURCE_LOADER.getResource(org.springframework.core.io.ResourceLoader.CLASSPATH_URL_PREFIX + "");
+        RESOURCE_LOADER.getResource(org.springframework.util.ResourceUtils.CLASSPATH_URL_PREFIX + "");
     }
 
 ```
+
+::: warning
+使用Spring框架默认的资源加载器的优点，可以帮助我们加载类路径下的资源，强大之处在于即使资源被打包进jar中依然能够加载，
+除此之外能够根据资源前缀自动加载相应的资源。eg: classpath:、file:、jar:、war:、等一系列资源
+:::
 
 # 路径匹配器
 
 ```java 
 
+    final static org.springframework.util.PathMatcher MACHER = new org.springframework.util.AntPathMatcher();
+
     public static void main(String[] args) {
-        org.springframework.util.PathMatcher matcher = new org.springframework.util.AntPathMatcher();
-        matcher.match("", "");
+        MACHER.match("", "");
     }
 
 ```
