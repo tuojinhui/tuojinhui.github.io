@@ -35,10 +35,62 @@
 
 # 小数处理
 
-## 小数格式化
+## 小数格式化(BigDecimal)
+```java 
+
+    public static String formatAmount(BigDecimal amount) {
+        double doubleValue = amount.doubleValue();
+        DecimalFormat decimalFormat = new DecimalFormat("000000000000");
+        return decimalFormat.format(doubleValue);
+    }
+
+```
 
 
-## 小数相加
+## 提供精确加法运算(BigDecimal)
+```java 
+
+    public static double add(Double v1, Double v2) {
+        return new BigDecimal(Double.toString(Optional.ofNullable(v1).orElse(0D))).add(new BigDecimal(Double.toString(Optional.ofNullable(v2).orElse(0D)))).doubleValue();
+    }
+
+```
+
+## 提供精确减法运算(BigDecimal)
+```java 
+
+    public static double subtract(Double v1, Double v2) {
+        return new BigDecimal(Double.toString(Optional.ofNullable(v1).orElse(0D))).subtract(new BigDecimal(Double.toString(Optional.ofNullable(v2).orElse(0D)))).doubleValue();
+    }
+
+```
+
+## 提供精确乘法运算(BigDecimal)
+```java
+
+    public static double multiply(Double v1, Double v2) {
+        return new BigDecimal(Double.toString(Optional.ofNullable(v1).orElse(0D))).multiply(new BigDecimal(Double.toString(Optional.ofNullable(v2).orElse(0D)))).doubleValue();
+    }
+
+```
+
+## 提供精确除法运算(BigDecimal)
+```java 
+
+    public static double divide(Double v1, Double v2) {
+        return divide(v1, v2, 10);
+    }
+
+    public static double divide(Double v1, Double v2, int scale) {
+        if (scale < 0) {
+            throw new IllegalArgumentException("The scale must be a positive integer or zero");
+        }
+        return new BigDecimal(Double.toString(Optional.ofNullable(v1).orElse(0D))).divide(new BigDecimal(Double.toString(Optional.ofNullable(v2).orElse(0D))), scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
+
+```
+
+## 提供精确求和运算(BigDecimal)
 ```java
 
     public static void main(String[] args) {
@@ -50,5 +102,6 @@
 ```
 
 ::: warning
-在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。 
+无论是长整形，单精度浮点型，双精度浮点型的数据转换为BigDecimal时，
+都建议先转换为对应的字符串，然后创建一个参数为字符串的BigDecimal实例。
 :::
