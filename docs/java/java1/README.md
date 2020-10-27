@@ -148,7 +148,7 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 ```java 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        System.out.println(ContentDisposition.builder(org.apache.tomcat.util.http.fileupload.FileUploadBase.ATTACHMENT).filename(URLEncoder.encode("财务第一季度结算报表", StandardCharsets.UTF_8.name())).build().toString());
+        System.out.println(org.springframework.http.ContentDisposition.builder(org.apache.tomcat.util.http.fileupload.FileUploadBase.ATTACHMENT).filename(URLEncoder.encode("财务第一季度结算报表", StandardCharsets.UTF_8.name())).build().toString());
     }
 
 ```
@@ -157,4 +157,15 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 [rfc - 6266](https://www.rfc-editor.org/rfc/rfc6266.txt) <Badge text="RFC"/>
 :::
 
+## 进制转换
+```java 
 
+    public static String toString(byte[] bytes) {
+        return new BigInteger(1, Objects.requireNonNull(bytes)).toString(16);
+    }
+
+    public static byte[] toByteArray(String string) {
+        return new BigInteger(Objects.requireNonNull(string), 16).toByteArray();
+    }
+
+```
