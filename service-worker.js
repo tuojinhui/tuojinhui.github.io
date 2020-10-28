@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "e6089124498114733c596dbff4e14fdb"
+    "revision": "991128cc530b1095c9af632967093fd0"
   },
   {
     "url": "assets/css/0.styles.e95cc0cd.css",
@@ -134,8 +134,8 @@ self.__precacheManifest = [
     "revision": "fe7ea1d4b2c887ed18751d1438ca6c5d"
   },
   {
-    "url": "assets/js/app.5bd6be59.js",
-    "revision": "0bb6be9a22619a75ae27816110876a98"
+    "url": "assets/js/app.480c90e9.js",
+    "revision": "c8c1bd0fee3dc10c261c0de1f7a4e3a9"
   },
   {
     "url": "css/scrollbar.css",
@@ -143,15 +143,15 @@ self.__precacheManifest = [
   },
   {
     "url": "element/element1/index.html",
-    "revision": "80ad95331be6fc6de2ebafdb04ed0d51"
+    "revision": "895308bba9c008c670cc3eb3aabdaccb"
   },
   {
     "url": "element/element2/index.html",
-    "revision": "aea67b0fe77c6f8ba5d9af585ab89de4"
+    "revision": "5dbade87531183416918d32899561f80"
   },
   {
     "url": "element/index.html",
-    "revision": "f79ab04d800aa9e5ffe283e72119ef45"
+    "revision": "479a2b49ce2a586f11e3ad4526ad672a"
   },
   {
     "url": "image/java8.jpg",
@@ -159,55 +159,55 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "e724512287dc4aa5c082915c308441c6"
+    "revision": "641f23d44b100b0ec3849a30998ba214"
   },
   {
     "url": "java/index.html",
-    "revision": "24b210a2fcc792d20ae1a9e81354dec6"
+    "revision": "4e063a43823152a560f62ac17c77f969"
   },
   {
     "url": "java/java1/BigDecimals.html",
-    "revision": "ba61ea70693ce8458ec70a867b083513"
+    "revision": "039c72414b1dfae428c1f2bc4bcc3706"
   },
   {
     "url": "java/java1/Executors.html",
-    "revision": "1f38306802af5cdf2cc3350fd08386b8"
+    "revision": "467ad9ec1a77c89046203b76ebafc71c"
   },
   {
     "url": "java/java1/knowledge.html",
-    "revision": "861b912db281db581434f6620680bd5b"
+    "revision": "5126573fb94851def3a7bf2b631f13ac"
   },
   {
     "url": "java/java1/RedisKeyExpirationListener.html",
-    "revision": "b315aee05897e8ab44d2251e7f8431ce"
+    "revision": "721e5f808b2c045d00d360e447492273"
   },
   {
     "url": "java/java2/index.html",
-    "revision": "c65dcfc0f593d1e1c6c0c3d34f216e7f"
+    "revision": "e4bd18d12de03b2d41abe962bed62592"
   },
   {
     "url": "mysql/index.html",
-    "revision": "7d2ea83bac1e239550e269dc98e93374"
+    "revision": "33bfe56005c2a764d4074218bfe985aa"
   },
   {
     "url": "mysql/mysql1/index.html",
-    "revision": "e1ca7c4ca91d93df302e7dc8e34f50af"
+    "revision": "d8f7e733b16b9c705a9a9fde5cd43c85"
   },
   {
     "url": "mysql/mysql2/index.html",
-    "revision": "dcbf1f6ce021ab791c3b9fcb5f6e4052"
+    "revision": "d4045346ed9faa38ec11d5ea19e5319b"
   },
   {
     "url": "vue/index.html",
-    "revision": "d8ead5b5160168d868583d196d209a15"
+    "revision": "8d8b0dcdec3d7a8925bf07e632eaa492"
   },
   {
     "url": "vue/vue1/index.html",
-    "revision": "e0153643677735d25697f1c2df9d24af"
+    "revision": "2933abd9ab154739145628f06502425b"
   },
   {
     "url": "vue/vue2/index.html",
-    "revision": "315b7e215320794e01600febbfe4d966"
+    "revision": "21e1bf86c3bdf246c060d882c8df74fd"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
