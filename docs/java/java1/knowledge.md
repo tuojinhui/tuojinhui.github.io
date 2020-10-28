@@ -132,10 +132,12 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 ## 路径匹配器
 ```java 
 
+    private static final String IGNORED_URL = "/**/ignored/**";
+
     final static org.springframework.util.PathMatcher PATH_MATCHER = new org.springframework.util.AntPathMatcher();
 
     public static void main(String[] args) {
-        PATH_MATCHER.match("", "");
+        PATH_MATCHER.match("", IGNORED_URL);
     }
 
 ```
