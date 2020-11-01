@@ -7,6 +7,7 @@ module.exports = [
             '/java/java1/Executors.md',
             '/java/java1/BigDecimals.md',
             '/java/java1/RedisKeyExpirationListener.md',
+            '/java/java1/LocalDataSourceConfig.md',
             '/java/java1/SpringSourceCode.md',
         ]
     },
