@@ -6,7 +6,7 @@
 
 spring:
   localdatasource:
-    url: jdbc:mysql://000.000.0000.000:3306/common?allowMultiQueries=true&useUnicode=true&useSSL=false&character_set_server=utf8mb4
+    url: jdbc:mysql://000.000.000.000:3306/common?allowMultiQueries=true&useUnicode=true&useSSL=false&character_set_server=utf8mb4
     username: 0000
     password: 0000
     initial-size: 3

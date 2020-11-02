@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 public class LocalDataSourceConfig {
 
     /**
-     * 数据源前缀
+     * DataSource 数据源前缀
      */
     static final String PREFIX = "local";
     /**
@@ -61,7 +61,7 @@ public class LocalDataSourceConfig {
     }
 
     /**
-     * 创建该数据源事务管理实例
+     * 创建该数据源事务管理器实例
      */
     @Primary
     @Bean(name = PREFIX + TRANSACTION_MANAGER)
@@ -70,7 +70,7 @@ public class LocalDataSourceConfig {
     }
 
     /**
-     * 创建MyBatis连接会话工厂实例
+     * 创建MyBatis SQL会话工厂实例
      */
     @Primary
     @Bean(name = PREFIX + SQL_SESSION_FACTORY)
