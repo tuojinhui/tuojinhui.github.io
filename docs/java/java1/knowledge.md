@@ -171,3 +171,27 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
     }
 
 ```
+
+## Map操作
+
+### 写法一
+```java
+    Collections.emptyMap();
+```
+
+### 写法二
+```java
+    Collections.singletonMap("k", "v");
+```
+
+### 写法三
+```java
+    Stream.of(new AbstractMap.SimpleEntry<>("k", "v")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+```
+
+### 写法四
+```java
+    Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, v -> v, (v1, v2) -> v1));
+```
+
+## List操作

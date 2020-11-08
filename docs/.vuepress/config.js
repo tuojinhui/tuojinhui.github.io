@@ -20,6 +20,7 @@ module.exports = {
         repo: 'https://github.com/tuojinhui/tuojinhui.github.io',
         repoLabel: 'GitHub',
         docsBranch: 'master',
+        displayAllHeaders: true,
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页',
         serviceWorker: {updatePopup: true},
