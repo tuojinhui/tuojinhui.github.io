@@ -45,7 +45,7 @@ public class Executors {
         private final ExecutorService instance;
 
         SingletonExecutorService() {
-            instance = new ThreadPoolExecutor(THREAD_NUMBER, THREAD_NUMBER * 2, 1000 * 60L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), ThreadFactoryBuilder.builder().setNameFormat("common-pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
+            instance = new ThreadPoolExecutor(THREAD_NUMBER, THREAD_NUMBER * 2, 1000 * 60L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(200), ThreadFactoryBuilder.builder().setNameFormat("common-pool-%d").build(), new ThreadPoolExecutor.AbortPolicy());
         }
 
         private ExecutorService getInstance() {
