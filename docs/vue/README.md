@@ -1,6 +1,5 @@
 # vue主页
-
-vue内容
+[[toc]]
 
 ## 控制台打印VUE实例
 
@@ -13,3 +12,25 @@ console.log($0.__vue__)
 console.log("%c vue-press %c v".concat("1.0.0-beta.1", " ").concat("dd10c50", " %c"), 'background: #35495e; padding: 1px; border-radius: 3px 0 0 3px; color: #fff', 'background: #41b883; padding: 1px; border-radius: 0 3px 3px 0; color: #fff', 'background: transparent');
 ```
 
+## 返回上一页
+```js 
+
+<script>
+    export default {
+
+        mounted() {
+        },
+
+        destroyed() {
+          if (window.history && window.history.pushState) {
+            history.pushState(null, null, document.URL);
+            window.addEventListener('popstate', this.$router.replace({name: 'home'}), false);
+          } else {
+            window.removeEventListener('popstate', this.$router.replace({name: 'home'}), false);
+          }
+        },
+
+    }
+</<script>
+
+```
