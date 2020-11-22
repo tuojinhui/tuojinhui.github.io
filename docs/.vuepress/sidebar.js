@@ -8,6 +8,8 @@ module.exports = {
 
     '/mysql/': require('../mysql/sidebar'),
 
+    '/other/': require('../other/sidebar'),
+
     '/vue/': require('../vue/sidebar'),
 
 }

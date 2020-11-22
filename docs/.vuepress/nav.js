@@ -7,6 +7,7 @@ module.exports = [
             {text: 'Java', link: '/java/'},
             {text: 'MySQL', link: '/mysql/'},
             {text: 'Vue', link: '/vue/'},
+            {text: 'Other', link: '/other/'},
         ]
     },
     {text: '关于', link: '/about/'},
