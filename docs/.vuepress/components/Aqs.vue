@@ -21,7 +21,7 @@
         methods: {
 
             obtainQueryVariable(name) {
-                return decodeURI(window.location.search.substr(1).match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"))[2]);
+                return window.decodeURI(window.location.search.substr(1).match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"))?.[2]);
             },
 
         },
