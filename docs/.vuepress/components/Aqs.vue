@@ -14,17 +14,11 @@
         },
 
         mounted() {
-            this.code = this.obtainQueryVariable('code');
-            console.log(this.code)
+            this.code = window.decodeURI(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]);
+            console.log('code ===', this.code)
         },
 
-        methods: {
-
-            obtainQueryVariable(name) {
-                return window.decodeURI(window.location.search.substr(1).match(new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"))?.[2]);
-            },
-
-        },
+        methods: {},
 
     }
 
