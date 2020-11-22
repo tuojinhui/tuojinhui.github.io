@@ -15,7 +15,7 @@
 
         mounted() {
             this.code = this.obtainQueryVariable('code');
-            alert(this.code);
+            console.log(this.code)
         },
 
         methods: {
