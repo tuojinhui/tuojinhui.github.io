@@ -17,6 +17,42 @@ console.log("%c vue-press %c v".concat("1.0.0-beta.1", " ").concat("dd10c50", " 
 console.log(window.decodeURIComponent(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]));
 ```
 
+## Element-UI时间段取值
+
+```js
+ export default {
+
+        data() {
+
+            return {
+                payStartTime: '',
+                payEndTime: '',
+            }
+
+        },
+
+        computed: {
+
+            /**
+             * 支付时间 时间段
+             */
+            payTimePeriod: {
+                set(val) {
+                    this.payStartTime = (val === null) ? '' : val[0]
+                    this.payEndTime = (val === null) ? '' : val[1]
+                }
+                ,
+                get() {
+                    return (this.payStartTime && this.payEndTime)
+                        ? [this.payStartTime, this.payEndTime]
+                        : []
+                }
+            },
+
+        }
+    }
+
+```
 
 ## 功能权限判断
 
@@ -60,23 +96,19 @@ import '@/directive/permission.js'
 
 ## 返回上一页
 ```js 
-
-<script>
-    export default {
+  export default {
 
         mounted() {
         },
 
         destroyed() {
-          if (window.history && window.history.pushState) {
-            history.pushState(null, null, document.URL);
-            window.addEventListener('popstate', this.$router.replace({name: 'home'}), false);
-          } else {
-            window.removeEventListener('popstate', this.$router.replace({name: 'home'}), false);
-          }
+            if (window.history && window.history.pushState) {
+                history.pushState(null, null, document.URL);
+                window.addEventListener('popstate', this.$router.replace({name: 'home'}), false);
+            } else {
+                window.removeEventListener('popstate', this.$router.replace({name: 'home'}), false);
+            }
         },
 
     }
-</<script>
-
 ```
