@@ -1,3 +1,8 @@
-# vue1侧标
+# vue知识讲解
 
-vue1内容
+## 获取地址栏code参数值
+```js
+
+console.log(window.decodeURIComponent(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]));
+
+```
