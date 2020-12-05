@@ -65,7 +65,7 @@ import Vue from 'vue'
 /**
  * VUE自定义权限指令
  * @author tjh
- * @desc 功能权限判断
+ * @desc 功能权限判断-可以移除和禁用 目前只启用移除
  * @use v-permission = "'action:add'"
  * @see https://cn.vuejs.org/v2/guide/custom-directive.html
  */
@@ -74,6 +74,9 @@ Vue.directive('permission', {
     const perms = JSON.parse(window.sessionStorage.getItem('perms') || '[]')
     if (perms && !perms.contains(binding.value)) {
       el.parentNode.removeChild(el)
+      // 禁用
+      // el.disabled = true
+      // el.classList.add('is-disabled')
     } else {
       throw new Error(`need perm like v-permission="'action:add'"`)
     }
