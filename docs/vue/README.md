@@ -18,6 +18,45 @@ console.log(window.decodeURIComponent(window.location.search.substr(1).match(new
 ```
 
 
+## 功能权限判断
+
+@/directive目录下创建permission.js
+```js
+
+import Vue from 'vue'
+
+
+/**
+ * VUE自定义权限指令
+ * @author tjh
+ * @desc 功能权限判断
+ * @use v-permission = "'action:add'"
+ * @see https://cn.vuejs.org/v2/guide/custom-directive.html
+ */
+Vue.directive('permission', {
+  inserted(el, binding) {
+    const perms = JSON.parse(window.sessionStorage.getItem('perms') || '[]')
+    if (perms && !perms.contains(binding.value)) {
+      el.parentNode.removeChild(el)
+    } else {
+      throw new Error(`need perm like v-permission="'action:add'"`)
+    }
+  }
+})
+
+// eslint-disable-next-line no-extend-native
+Array.prototype.contains = function (val) {
+  return this.indexOf(val) !== -1
+}
+
+```
+main.js 导入
+```js
+import '@/directive/permission.js'
+```
+
+
+
 
 ## 返回上一页
 ```js 
