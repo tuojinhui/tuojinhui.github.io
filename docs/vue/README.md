@@ -12,6 +12,13 @@ console.log($0.__vue__)
 console.log("%c vue-press %c v".concat("1.0.0-beta.1", " ").concat("dd10c50", " %c"), 'background: #35495e; padding: 1px; border-radius: 3px 0 0 3px; color: #fff', 'background: #41b883; padding: 1px; border-radius: 0 3px 3px 0; color: #fff', 'background: transparent');
 ```
 
+## 控制台打印code参数值
+```js
+console.log(window.decodeURIComponent(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]));
+```
+
+
+
 ## 返回上一页
 ```js 
 
