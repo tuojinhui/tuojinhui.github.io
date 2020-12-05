@@ -1,6 +1,6 @@
 module.exports = [
     {
-        title: 'vue侧边栏1',
+        title: 'VUE知识点',
         collapsable: true,
         children: ['/vue/vue1/']
     },
