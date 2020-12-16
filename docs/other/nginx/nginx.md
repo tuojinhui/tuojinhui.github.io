@@ -11,7 +11,7 @@ https://nginx.org/download/
 
 ### 1.进入目录
 ```shell script
-cd /opt
+mkdir -p /opt && cd /opt
 ```
 
 ### 2.下载软件
@@ -52,7 +52,7 @@ mkdir ./node-v10.16.0 && tar -xf node-v10.16.0-linux-x64.tar.xz -C ./node-v10.16
 echo 'export PATH=$PATH:/opt/node-v10.16.0/bin' >> /etc/profile
 ```
 
-### 4.全局生效
+### 4.立即生效
 ```shell script
 source /etc/profile
 ```
