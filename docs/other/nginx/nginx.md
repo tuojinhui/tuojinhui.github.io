@@ -52,8 +52,36 @@ mkdir ./node-v10.16.0 && tar -xf node-v10.16.0-linux-x64.tar.xz -C ./node-v10.16
 echo 'export PATH=$PATH:/opt/node-v10.16.0/bin' >> /etc/profile
 ```
 
-### 4.立即生效
+### 5.立即生效
 ```shell script
 source /etc/profile
 ```
+
+### 6.指令测试
+```shell script
+[root@iZuf6hyj00tfq6qs8i8ez1Z ~]# cd /
+[root@iZuf6hyj00tfq6qs8i8ez1Z /]# node -v
+v10.16.0
+[root@iZuf6hyj00tfq6qs8i8ez1Z /]# npm -v
+6.9.0
+```
+
+
 ###
+
+::: warning
+
+ 1.通过cnpm使用淘宝镜像：
+ 
+ npm install -g cnpm --registry=https://registry.npm.taobao.org
+ 2.将npm设置为淘宝镜像：
+ 
+ npm config set registry https://registry.npm.taobao.org
+ 3. 查看npm镜像设置：
+ 
+ npm config get registry 
+ 4.查看cnpm镜像设置：
+ 
+ cnpm config get registry 
+   
+:::
