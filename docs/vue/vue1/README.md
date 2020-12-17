@@ -17,6 +17,24 @@ console.log("%c vue-press %c v".concat("1.0.0-beta.1", " ").concat("dd10c50", " 
 console.log(window.decodeURIComponent(window.location.search.substr(1).match(new RegExp("(^|&)code=([^&]*)(&|$)", "i"))?.[2]));
 ```
 
+## 控制台引入js
+```js
+const script = document.createElement('script');
+script.src = "https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js";
+document.getElementsByTagName('head')[0].appendChild(script);
+```
+
+## 浏览器跳转
+打开新窗口跳转
+```js
+window.open('http://www.baidu.com', '_blank')
+```
+自身窗口跳转
+```js
+window.open('http://www.baidu.com', '_self')
+```
+
+
 ## Element-UI时间段取值
 
 ```js
