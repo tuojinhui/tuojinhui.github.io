@@ -1,6 +1,63 @@
 # 软件安装
 [[toc]]
 
+## JDK安装
+### 资源查看
+[jdk](https://repo.huaweicloud.com/java/jdk/) <Badge text="jdk"/>
+```shell script
+https://repo.huaweicloud.com/java/jdk/
+```
+### 安装步骤
+```shell script
+mkdir -p /opt && cd /opt
+
+wget https://repo.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-x64.tar.gz
+
+mkdir -p ./jdk1.8.0_202 && tar -zxvf jdk-8u202-linux-x64.tar.gz -C ./jdk1.8.0_202 --strip-components 1
+
+vim /etc/profile
+export JAVA_HOME=/opt/jdk1.8.0_202
+export PATH=$PATH:$JAVA_HOME/bin
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+source /etc/profile
+
+java -version
+```
+
+
+## MAVEN安装
+### 资源查看
+[maven](https://repo.huaweicloud.com/apache/maven/maven-3/) <Badge text="maven"/>
+```shell script
+https://repo.huaweicloud.com/apache/maven/maven-3/
+```
+### 安装步骤
+```shell script
+mkdir -p /opt && cd /opt
+
+wget https://repo.huaweicloud.com/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+
+mkdir -p ./apache-maven-3.6.3 && tar -zxvf apache-maven-3.6.3-bin.tar.gz -C ./apache-maven-3.6.3 --strip-components 1
+
+vim /etc/profile
+export MAVEN_HOME=/opt/apache-maven-3.6.3
+export PATH=$PATH:$MAVEN_HOME/bin
+
+source /etc/profile
+
+mvn -version
+```
+
+## GIT安装
+### 安装步骤
+```shell script
+yum install git -y
+
+git --version
+```
+
+
 ## Nginx安装
 
 ### 0.资源查看
@@ -89,44 +146,27 @@ wget https://nginx.org/download/nginx-1.9.9.tar.gz
 
 ## Node安装
 
-### 0.资源查看
+### 资源查看
 [nodejs](https://nodejs.org/dist/) <Badge text="nodejs"/>
 ```shell script
 https://nodejs.org/dist/
 ```
 
-### 1.进入目录
+### 安装步骤
 ```shell script
 mkdir -p /opt && cd /opt
-```
 
-### 2.下载软件
-```shell script
 wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz
-```
 
-### 3.解压软件
-```shell script
-mkdir ./node-v10.16.0 && tar -xf node-v10.16.0-linux-x64.tar.xz -C ./node-v10.16.0 --strip-components 1
-```
+mkdir -p ./node-v10.16.0 && tar -xf node-v10.16.0-linux-x64.tar.xz -C ./node-v10.16.0 --strip-components 1
 
-### 4.设置全局
-```shell script
-echo 'export PATH=$PATH:/opt/node-v10.16.0/bin' >> /etc/profile
-```
+vim /etc/profile
+export PATH=$PATH:/opt/node-v10.16.0/bin
 
-### 5.立即生效
-```shell script
 source /etc/profile
-```
 
-### 6.指令测试
-```shell script
-[root@iZuf6hyj00tfq6qs8i8ez1Z ~]# cd /
-[root@iZuf6hyj00tfq6qs8i8ez1Z /]# node -v
-v10.16.0
-[root@iZuf6hyj00tfq6qs8i8ez1Z /]# npm -v
-6.9.0
+node -v
+npm -v
 ```
 
 
