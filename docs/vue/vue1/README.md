@@ -72,8 +72,7 @@ window.open('http://www.baidu.com', '_self')
                 ,
                 get() {
                     return (this.payStartTime && this.payEndTime)
-                        ? [this.payStartTime, this.payEndTime]
-                        : []
+                        ? [this.payStartTime, this.payEndTime]: []
                 }
             },
 
