@@ -19,9 +19,19 @@ console.log(window.decodeURIComponent(window.location.search.substr(1).match(new
 
 ## 控制台引入js
 ```js
-const script = document.createElement('script');
-script.src = "https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js";
-document.getElementsByTagName('head')[0].appendChild(script);
+(function() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+})()
+```
+
+## 网站置灰
+```js
+(function() {
+    const html = document.getElementsByTagName('html')[0];
+    html.style = html.style.cssText + "-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); _filter: none; filter: grayscale(100%)"
+})()
 ```
 
 ## 浏览器跳转
