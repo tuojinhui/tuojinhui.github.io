@@ -84,6 +84,12 @@ npm -v
    
 :::
 
+## TOMCAT安装
+
+## MYSQL安装
+
+## REDIS安装
+
 ## GIT安装
 ```shell script
 yum install git -y
@@ -91,14 +97,9 @@ yum install git -y
 git --version
 ```
 
-## MYSQL安装
-
-## REDIS安装
-
 ## DOCKER安装
 
 ## JENKINS安装
-
 
 ## NGINX安装
 
