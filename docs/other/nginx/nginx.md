@@ -91,6 +91,14 @@ yum install git -y
 git --version
 ```
 
+## MYSQL安装
+
+## REDIS安装
+
+## DOCKER安装
+
+## JENKINS安装
+
 
 ## NGINX安装
 
@@ -160,3 +168,4 @@ git --version
     make -j2
     make install
 ```
+
