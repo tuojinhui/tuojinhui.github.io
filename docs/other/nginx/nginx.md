@@ -146,7 +146,7 @@ git --version
     make install
 ```
 
-### 4.安装NGINX
+### 5.安装NGINX
 ```shell script
     cd /opt
     wget https://mirrors.huaweicloud.com/nginx/nginx-1.9.9.tar.gz
