@@ -100,7 +100,7 @@ git --version
 
 ### 2.安装PCRE库
 
-     ## https://ftp.pcre.org/pub/pcre/ 下载最新的 PCRE 源码包，使用下面命令下载编译和安装 PCRE 包：
+    https://ftp.pcre.org/pub/pcre/ 下载最新的 PCRE 源码包，使用下面命令下载编译和安装 PCRE 包：
      
 ```shell script
     cd /opt
