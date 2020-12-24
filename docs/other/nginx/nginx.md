@@ -116,28 +116,14 @@ git --version
     source /etc/profile
 
     ## 指令暂停一秒
-    ti1=`date +%s`
-    ti2=`date +%s`
-    i=$(($ti2 - $ti1 ))
-    while [[ "$i" -ne "1" ]]
-    do    
-            ti2=`date +%s`
-            i=$(($ti2 - $ti1 ))
-    done
+    sleep 1s
     
     cd /data/app/
     
     nohup java -jar "$1".jar >./logs/"$1".out 2>&1 &
 
     ## 指令暂停三秒
-    ti1=`date +%s`
-    ti2=`date +%s`
-    i=$(($ti2 - $ti1 ))
-    while [[ "$i" -ne "3" ]]
-    do
-            ti2=`date +%s`
-            i=$(($ti2 - $ti1 ))
-    done
+    sleep 3s
     
     newPid=`pgrep -f "java.*${1}"`
     
