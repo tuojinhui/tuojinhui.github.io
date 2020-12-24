@@ -72,22 +72,25 @@ npm -v
  1.通过cnpm使用淘宝镜像：
  <br/>
  
- npm install -g cnpm --registry=https://registry.npm.taobao.org
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
  <br/>
+ 
  2.将npm设置为淘宝镜像：
  <br/>
  
- npm config set registry https://registry.npm.taobao.org
- <br/>
- 3. 查看npm镜像设置：
+    npm config set registry https://registry.npm.taobao.org
  <br/>
  
- npm config get registry 
+ 3.查看npm镜像设置：
  <br/>
+ 
+    npm config get registry
+ <br/>
+ 
  4.查看cnpm镜像设置：
  <br/>
  
- cnpm config get registry 
+    cnpm config get registry 
  <br/>
    
 :::
