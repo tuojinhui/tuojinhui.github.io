@@ -50,6 +50,20 @@ source /etc/profile
 
 mvn -version
 ```
+::: warning
+
+ 设置MAVEN镜像：
+       
+       https://developer.aliyun.com/mirror/maven
+       
+       <mirror>
+           <id>aliyunmaven</id>
+           <mirrorOf>*</mirrorOf>
+           <name>阿里云公共仓库</name>
+           <url>https://maven.aliyun.com/repository/public</url>
+       </mirror>
+
+:::
 
 ## NODE安装
 ```shell script
