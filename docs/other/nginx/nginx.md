@@ -113,8 +113,8 @@ git --version
        echo "该服务原有进程已杀死"
     fi
     
-    
     source /etc/profile
+
     ## 指令暂停一秒
     ti1=`date +%s`
     ti2=`date +%s`
@@ -127,11 +127,8 @@ git --version
     
     cd /data/app/
     
-    #touch $2
-    
     nohup java -jar "$1".jar >./logs/"$1".out 2>&1 &
-    
-    
+
     ## 指令暂停三秒
     ti1=`date +%s`
     ti2=`date +%s`
@@ -141,7 +138,6 @@ git --version
             ti2=`date +%s`
             i=$(($ti2 - $ti1 ))
     done
-    
     
     newPid=`pgrep -f "java.*${1}"`
     
