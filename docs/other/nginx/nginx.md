@@ -101,6 +101,81 @@ git --version
 
 ## JENKINS安装
 
+```shell script
+    
+    #!bin/bash
+    
+    oldPid=`pgrep -f "java.*${1}"`
+    
+    if [ -n "${oldPid}" ];then
+       echo "正在杀死该服务原有进程,进程ID为:${oldPid}"
+       kill -9 "${oldPid}"
+       echo "该服务原有进程已杀死"
+    fi
+    
+    
+    source /etc/profile
+    ## 指令暂停一秒
+    ti1=`date +%s`
+    ti2=`date +%s`
+    i=$(($ti2 - $ti1 ))
+    while [[ "$i" -ne "1" ]]
+    do    
+            ti2=`date +%s`
+            i=$(($ti2 - $ti1 ))
+    done
+    
+    cd /data/app/
+    
+    #touch $2
+    
+    nohup java -jar "$1".jar >./logs/"$1".out 2>&1 &
+    
+    
+    ## 指令暂停三秒
+    ti1=`date +%s`
+    ti2=`date +%s`
+    i=$(($ti2 - $ti1 ))
+    while [[ "$i" -ne "3" ]]
+    do
+            ti2=`date +%s`
+            i=$(($ti2 - $ti1 ))
+    done
+    
+    
+    newPid=`pgrep -f "java.*${1}"`
+    
+    if [ -n "${newPid}" ];then
+            echo "该服务新的进程ID为:${newPid}"
+        echo "该服务启动成功"
+    else
+            echo "该服务新的进程ID为空"
+        echo "该服务启动失败"
+    fi
+    
+    if [ -n "${newPid}" ];then
+            echo  "
+      _____ _    _  _____ _____ ______  _____ _____ 
+     / ____| |  | |/ ____/ ____|  ____|/ ____/ ____|
+    | (___ | |  | | |   | |    | |__  | (___| (___  
+     \___ \| |  | | |   | |    |  __|  \___ \\___ \ 
+     ____) | |__| | |___| |____| |____ ____) |___) |
+    |_____/ \____/ \_____\_____|______|_____/_____/ 
+    "
+    else
+            echo " 
+     ______      _____ _      
+    |  ____/\   |_   _| |     
+    | |__ /  \    | | | |     
+    |  __/ /\ \   | | | |     
+    | | / ____ \ _| |_| |____ 
+    |_|/_/    \_\_____|______|
+    
+    "
+    fi
+
+```
+
 ## NGINX安装
 
 ### 1.选定源码目录
