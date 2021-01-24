@@ -13,6 +13,9 @@ module.exports = [
             '/java/java1/ThrowableInterceptConfig.md',
             '/java/java1/Retry.md',
             '/java/java1/Filter.md',
+            '/java/java1/Enum.md',
+            '/java/java1/Optional.md',
+
 
 
             '/java/java1/SpringSourceCode.md',
