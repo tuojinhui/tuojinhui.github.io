@@ -15,6 +15,7 @@ module.exports = [
             '/java/java1/Filter.md',
             '/java/java1/Enum.md',
             '/java/java1/Optional.md',
+            '/java/java1/MenuTree.md',
 
 
 
