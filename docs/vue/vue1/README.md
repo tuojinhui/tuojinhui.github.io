@@ -112,8 +112,6 @@ Vue.directive('permission', {
       // 禁用
       // el.disabled = true
       // el.classList.add('is-disabled')
-    } else {
-      throw new Error(`need perm like v-permission="'action:add'"`)
     }
   }
 })

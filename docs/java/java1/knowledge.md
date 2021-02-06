@@ -195,3 +195,23 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 ```
 
 ## List操作
+
+## Objects
+```java 
+
+ public void compare(Integer a, Integer b) {
+        boolean canCompare = Objects.nonNull(a) && Objects.nonNull(b);
+        if (canCompare && Objects.compare(a, b, Integer::compareTo) > 0) {
+            // do something
+        }
+    }
+
+```
+
+
+## 当天最大最小时间
+```java
+    LocalDateTime max = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+    LocalDateTime min = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+    long remindSecondsOfDay = ChronoUnit.SECONDS.between(LocalDateTime.now(), LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
+```
