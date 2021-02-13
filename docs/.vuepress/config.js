@@ -37,7 +37,7 @@ module.exports = {
         ['@vuepress/last-updated', {
             transformer: (timestamp, lang) => {
                 const dayjs = require('dayjs') // https://day.js.org/
-                return dayjs(timestamp).add(8, 'hour').format('YYYY/MM/DD, HH:mm:ss')
+                return dayjs(timestamp).add(8, 'hour').format('YYYY-MM-DD HH:mm:ss')
             },
         },],
         ['@vuepress/medium-zoom'],
