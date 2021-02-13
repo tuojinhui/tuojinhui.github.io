@@ -34,7 +34,12 @@ module.exports = {
     },
     plugins: [
         ['@vuepress/back-to-top'],
-        ['@vuepress/last-updated'],
+        ['@vuepress/last-updated', {
+            transformer: (timestamp, lang) => {
+                const dayjs = require('dayjs') // https://day.js.org/
+                return dayjs(timestamp).format('YYYY/MM/DD, HH:mm:ss')
+            },
+        },],
         ['@vuepress/medium-zoom'],
         ['@vuepress/pwa', {
             serviceWorker: true,
