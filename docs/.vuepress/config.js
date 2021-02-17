@@ -54,6 +54,7 @@ module.exports = {
             repo: 'tuojinhui.github.io',
             clientId: '0c5e5feb0ba9e8b9eab8',
             clientSecret: '5447f009f0e1826b4bcadd5b38d86521faf30768',
-        },]
+        },],
+        ['vuepress-plugin-code-copy', true]
     ]
 }
