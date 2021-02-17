@@ -123,3 +123,37 @@
 ]
 
 ```
+
+### 层序遍历
+
+```java 
+
+    @Test
+    public void executelevelorder() {
+        Node root = new Node();
+        root.setChildren(nodes);
+        List<String> names = levelorder(root);
+        System.out.println(names);
+    }
+
+    /**
+     * 遍历获取菜单名字
+     *
+     * @param root
+     * @return
+     */
+    public List<String> levelorder(Node root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<String> result = new ArrayList<>(10);
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Optional.ofNullable(queue.poll().getChildren()).orElseGet(Collections::emptyList).stream().map(Node::getName).forEach(result::add);
+        }
+
+        return result;
+    }
+
+```
