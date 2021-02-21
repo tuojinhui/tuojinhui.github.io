@@ -4,7 +4,7 @@
 ::: tip
 
 红黑树:
-    两种颜色，五种性质的自平衡二叉树
+    两种颜色，五种性质的自平衡二叉查找树
 :::
 
 ### 红黑树实现
@@ -15,7 +15,7 @@
 ```java 
 package com.common;
 
-import com.billbear.foodie.utils.map.TreeMap;
+import com.common.TreeMap;
 
 import java.util.LinkedList;
 import java.util.Optional;
@@ -45,7 +45,7 @@ public class BinaryTreeTraversal {
         levelorder(root);
     }
 
-    /**
+  /**
      * 前序遍历
      */
     public static void preorder(TreeMap.Entry<String, String> entry) {
@@ -64,9 +64,9 @@ public class BinaryTreeTraversal {
         if (entry == null) {
             return;
         }
-        preorder(entry.left);
+        inorder(entry.left);
         processnode(entry);
-        preorder(entry.right);
+        inorder(entry.right);
     }
 
     /**
@@ -76,8 +76,8 @@ public class BinaryTreeTraversal {
         if (entry == null) {
             return;
         }
-        preorder(entry.left);
-        preorder(entry.right);
+        postorder(entry.left);
+        postorder(entry.right);
         processnode(entry);
     }
 
