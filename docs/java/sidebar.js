@@ -17,6 +17,7 @@ module.exports = [
             '/java/java1/Optional.md',
             '/java/java1/MenuTree.md',
             '/java/java1/RedBlackTree.md',
+            '/java/java1/DefaultFastJsonConfig.md',
 
 
 
