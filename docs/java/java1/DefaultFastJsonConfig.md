@@ -11,7 +11,7 @@
 
 ```
 
-### 消息转换器
+### 配置消息转换器
 <<< @/docs/java/java1/DefaultFastJsonConfig.java
 
 
