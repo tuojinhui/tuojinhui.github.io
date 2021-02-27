@@ -1,5 +1,6 @@
 # 序列化配置(FastJson)
 
+### FastJson依赖
 ```xml
 
     <dependency>
@@ -9,6 +10,8 @@
     </dependency>
 
 ```
+
+### 消息转换器
 <<< @/docs/java/java1/DefaultFastJsonConfig.java
 
 
