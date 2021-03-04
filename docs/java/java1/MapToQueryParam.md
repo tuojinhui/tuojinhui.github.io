@@ -26,7 +26,8 @@ public class MapToQueryParamsUtils {
      */
     public static String mappingToQueryParams(Map<String, Object> params) {
         StringBuilder sb = new StringBuilder();
-        params.entrySet().stream().sorted(ENTRY_COMPARATOR).forEach(entry -> combination(entry, sb));
+        Optional.ofNullable(params).orElseGet(Collections::emptyMap).entrySet()
+                .stream().sorted(ENTRY_COMPARATOR).forEach(entry -> combination(entry, sb));
         return sb.deleteCharAt(0).toString();
     }
 
