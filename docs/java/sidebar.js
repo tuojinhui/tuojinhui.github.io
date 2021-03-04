@@ -18,7 +18,7 @@ module.exports = [
             '/java/java1/MenuTree.md',
             '/java/java1/RedBlackTree.md',
             '/java/java1/DefaultFastJsonConfig.md',
-
+            '/java/java1/MapToQueryParam.md',
 
 
             '/java/java1/SpringSourceCode.md',
