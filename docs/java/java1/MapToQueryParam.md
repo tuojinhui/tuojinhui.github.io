@@ -28,7 +28,7 @@ public class MapToQueryParamsUtils {
         StringBuilder sb = new StringBuilder();
         Optional.ofNullable(params).orElseGet(Collections::emptyMap).entrySet()
                 .stream().sorted(ENTRY_COMPARATOR).forEach(entry -> combination(entry, sb));
-        return sb.deleteCharAt(0).toString();
+        return sb.length() > 0 ? sb.deleteCharAt(0).toString() : sb.toString();
     }
 
     /**
