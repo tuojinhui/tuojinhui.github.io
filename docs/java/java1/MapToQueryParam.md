@@ -5,18 +5,21 @@ package com.common;
 
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author common
  */
 public class MapToQueryParamsUtils {
 
+    private final static String EMPTY = "";
+
     /**
      * Returns a comparator that compares {@link Map.Entry} by key using the given
      * {@link Comparator}.
      */
-    private static final Comparator<Map.Entry<String, Object>> ENTRY_COMPARATOR =
-            Map.Entry.comparingByKey(Comparator.comparing(String::valueOf, Comparator.naturalOrder()));
+    private static final Comparator<Map.Entry<String, Object>> COMPARATOR =
+            Map.Entry.comparingByKey(Comparator.comparing(Objects::toString, Comparator.naturalOrder()));
 
     /**
      * Mapping to queryParams.
@@ -25,10 +28,12 @@ public class MapToQueryParamsUtils {
      * @return
      */
     public static String mappingToQueryParams(Map<String, Object> params) {
+        if (params == null || params.isEmpty()) {
+            return EMPTY;
+        }
         StringBuilder sb = new StringBuilder();
-        Optional.ofNullable(params).orElseGet(Collections::emptyMap).entrySet()
-                .stream().sorted(ENTRY_COMPARATOR).forEach(entry -> combination(entry, sb));
-        return sb.length() > 0 ? sb.deleteCharAt(0).toString() : sb.toString();
+        params.entrySet().stream().sorted(COMPARATOR).forEach(e -> combination(e, sb));
+        return sb.deleteCharAt(0).toString();
     }
 
     /**
@@ -40,7 +45,7 @@ public class MapToQueryParamsUtils {
     private static void combination(Map.Entry<String, Object> entry, StringBuilder sb) {
         sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
     }
-    
+
 }
 
 ```
