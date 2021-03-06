@@ -1,10 +1,14 @@
 # MAP转换为URL参数
+[[toc]]
 
+
+### 转换源码
 ```java 
 package com.common;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author common
@@ -29,8 +33,7 @@ public class CombinationParamsUtils {
     private static final Comparator<Map.Entry<String, Object>> VALUE_REVERSE_COMPARATOR =
             Map.Entry.comparingByValue(Comparator.comparing(Objects::toString, Comparator.reverseOrder()));
 
-    private static final Map<String, Comparator<Map.Entry<String, Object>>> SORTED_INFOS
-            = Arrays.stream(SortedInfo.values()).collect(Collectors.toMap(SortedInfo::name, SortedInfo::getComparator));
+    private static final Comparator<Map.Entry<String, Object>> NO_ORDER_COMPARATOR = (o1, o2) -> 0;
 
     /**
      * Mapping to queryParams.
@@ -43,8 +46,7 @@ public class CombinationParamsUtils {
             return EMPTY;
         }
         StringBuilder sb = new StringBuilder();
-        params.entrySet().stream().sorted(SORTED_INFOS
-                .get(sortedInfo.name())).forEach(e -> combination(e, sb));
+        params.entrySet().stream().sorted(sortedInfo.comparator).forEach(e -> combination(e, sb));
         return sb.deleteCharAt(0).toString();
     }
 
@@ -55,7 +57,9 @@ public class CombinationParamsUtils {
      * @param sb
      */
     private static void combination(Map.Entry<String, Object> entry, StringBuilder sb) {
-        sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+        if (entry.getValue() != null && String.valueOf(entry.getValue()).length() != 0) {
+            sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+        }
     }
 
     public enum SortedInfo {
@@ -85,22 +89,54 @@ public class CombinationParamsUtils {
          *
          * @see java.util.LinkedHashMap
          */
-        NO_ORDER((o1, o2) -> 0),
+        NO_ORDER(NO_ORDER_COMPARATOR),
 
         ;
+
+        private final Comparator<Map.Entry<String, Object>> comparator;
 
         SortedInfo(Comparator<Map.Entry<String, Object>> comparator) {
             this.comparator = comparator;
         }
-
-        private final Comparator<Map.Entry<String, Object>> comparator;
-
-        public Comparator<Map.Entry<String, Object>> getComparator() {
-            return comparator;
-        }
-
     }
 
 }
+```
+
+### 构建测试
+```java 
+package com.common;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CombinationParamsUtilsTest {
+
+    public static void main(String[] args) {
+        Map<String, Object> params = new HashMap<>(16);
+        params.put("1", "A");
+        params.put("4", "D");
+        params.put("7", "Z");
+        params.put("8", "S");
+        params.put("6", "M");
+
+        System.out.println(CombinationParamsUtils.mappingToQueryParams(params, CombinationParamsUtils.SortedInfo.KEY_ASC));
+        System.out.println(CombinationParamsUtils.mappingToQueryParams(params, CombinationParamsUtils.SortedInfo.KEY_DESC));
+        System.out.println(CombinationParamsUtils.mappingToQueryParams(params, CombinationParamsUtils.SortedInfo.VALUE_ASC));
+        System.out.println(CombinationParamsUtils.mappingToQueryParams(params, CombinationParamsUtils.SortedInfo.VALUE_DESC));
+        System.out.println(CombinationParamsUtils.mappingToQueryParams(params, CombinationParamsUtils.SortedInfo.NO_ORDER));
+    }
+
+}
+```
+
+### 测试结果
+```text
+
+1=A&4=D&6=M&7=Z&8=S
+8=S&7=Z&6=M&4=D&1=A
+1=A&4=D&6=M&8=S&7=Z
+7=Z&8=S&6=M&4=D&1=A
+1=A&4=D&6=M&7=Z&8=S
 
 ```
