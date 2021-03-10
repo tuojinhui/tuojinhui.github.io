@@ -57,7 +57,7 @@ public class CombinationParamsUtils {
      * @param sb
      */
     private static void combination(Map.Entry<String, Object> entry, StringBuilder sb) {
-        if (entry.getValue() != null && String.valueOf(entry.getValue()).length() != 0) {
+        if (entry.getValue() != null && String.valueOf(entry.getValue()).trim().length() != 0) {
             sb.append("&").append(entry.getKey()).append("=").append(entry.getValue());
         }
     }
