@@ -215,3 +215,41 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
     LocalDateTime min = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
     long remindSecondsOfDay = ChronoUnit.SECONDS.between(LocalDateTime.now(), LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
 ```
+
+## 工程资源收集
+```java 
+
+package com.common;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author common
+ */
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class TestRunner {
+
+    @Autowired
+    List<RequestMappingInfoHandlerMapping> requestMappingInfoHandlerMappings;
+
+    @Test
+    public void watchResourceServer() {
+        final Map<RequestMappingInfo, HandlerMethod> handlerMethods = new HashMap<>(32);
+        requestMappingInfoHandlerMappings.stream().map(RequestMappingInfoHandlerMapping::getHandlerMethods).forEach(handlerMethods::putAll);
+        System.out.println("工程接口数量：" + handlerMethods.size());
+    }
+
+}
+```
