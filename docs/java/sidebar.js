@@ -3,8 +3,8 @@ module.exports = [
         title: 'JAVA知识点',
         collapsable: true,
         children: [
-            '/java/java1/1-SortingAlgorithm.md',
-            '/java/java1/2-SearchAlgorithm.md',
+            '/java/java1/2-SortingAlgorithm.md',
+            '/java/java1/3-SearchAlgorithm.md',
             '/java/java1/4-DesignPatterns.md',
             '/java/java1/1-DataStructures.md',
 
