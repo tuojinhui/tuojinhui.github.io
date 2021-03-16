@@ -2,7 +2,7 @@
 [[toc]]
 
 ```java 
-package com.billbear.common.utils;
+package com.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -73,6 +73,7 @@ public enum DesignPatterns {
 
 }
 ```
+
 ### 单例模式
 ### 原型模式
 ### 工厂方法模式
