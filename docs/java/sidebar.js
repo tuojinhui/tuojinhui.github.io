@@ -19,7 +19,7 @@ module.exports = [
             '/java/java1/RedBlackTree.md',
             '/java/java1/DefaultFastJsonConfig.md',
             '/java/java1/MapToQueryParam.md',
-
+            '/java/java1/SortingAlgorithm.md',
 
             '/java/java1/SpringSourceCode.md',
         ]
