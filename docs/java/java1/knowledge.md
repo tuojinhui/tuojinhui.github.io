@@ -2,7 +2,7 @@
 [[toc]]
 
 
-## 手机号脱敏
+### 手机号脱敏
 ```java
 
     final static java.util.regex.Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
@@ -13,7 +13,7 @@
 
 ```
 
-## 身份证号脱敏
+### 身份证号脱敏
 ```java
 
     final static java.util.regex.Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
@@ -28,7 +28,7 @@
 在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。 
 :::
 
-## 小数格式化(BigDecimal)
+### 小数格式化(BigDecimal)
 ```java 
 
     DecimalFormat DECIMALFORMAT = new DecimalFormat("000000000000");
@@ -40,7 +40,7 @@
 ```
 
 
-## 提供精确加法运算(BigDecimal)
+### 提供精确加法运算(BigDecimal)
 ```java 
 
     public static double add(Double v1, Double v2) {
@@ -49,7 +49,7 @@
 
 ```
 
-## 提供精确减法运算(BigDecimal)
+### 提供精确减法运算(BigDecimal)
 ```java 
 
     public static double subtract(Double v1, Double v2) {
@@ -58,7 +58,7 @@
 
 ```
 
-## 提供精确乘法运算(BigDecimal)
+### 提供精确乘法运算(BigDecimal)
 ```java
 
     public static double multiply(Double v1, Double v2) {
@@ -67,7 +67,7 @@
 
 ```
 
-## 提供精确除法运算(BigDecimal)
+### 提供精确除法运算(BigDecimal)
 ```java 
 
     public static double divide(Double v1, Double v2) {
@@ -83,7 +83,7 @@
 
 ```
 
-## 提供精确求和运算(BigDecimal)
+### 提供精确求和运算(BigDecimal)
 ```java
 
     public static void main(String[] args) {
@@ -99,7 +99,7 @@
 都建议先转换为对应的字符串，然后创建一个参数为字符串的BigDecimal实例。
 :::
 
-## 流排序
+### 流排序
 ```java 
 
     public static void main(String[] args) {
@@ -113,7 +113,7 @@ Comparator.comparing需要传两个参数， Function函数式接口 和 Compara
 Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序排序
 :::
 
-## 资源加载器
+### 资源加载器
 ```java 
 
     final static org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
@@ -129,7 +129,7 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 除此之外能够根据资源前缀自动加载相应的资源。eg: classpath:、file:、jar:、war:、等一系列资源
 :::
 
-## 路径匹配器
+### 路径匹配器
 ```java 
 
     private static final String IGNORED_URL = "/**/ignored/**";
@@ -146,7 +146,7 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * | 匹配0或者任意数量的字符 | ** | 匹配0或者更多的目录
 :::
 
-## 附件标识
+### 附件标识
 ```java 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
@@ -159,7 +159,7 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 [rfc - 6266](https://www.rfc-editor.org/rfc/rfc6266.txt) <Badge text="RFC"/>
 :::
 
-## 进制转换
+### 进制转换
 ```java 
 
     public static String toString(byte[] bytes) {
@@ -172,31 +172,31 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 
 ```
 
-## Map操作
+### Map操作
 
-#### 写法一
+###### 写法一
 ```java
     Collections.emptyMap();
 ```
 
-#### 写法二
+###### 写法二
 ```java
     Collections.singletonMap("k", "v");
 ```
 
-#### 写法三
+###### 写法三
 ```java
     Stream.of(new AbstractMap.SimpleEntry<>("k", "v")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 ```
 
-#### 写法四
+###### 写法四
 ```java
     Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, v -> v, (v1, v2) -> v1));
 ```
 
-## List操作
+### List操作
 
-## Objects
+### Objects
 ```java 
 
  public void compare(Integer a, Integer b) {
@@ -209,14 +209,14 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 ```
 
 
-## 当天最大最小时间
+### 当天最大最小时间
 ```java
     LocalDateTime max = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
     LocalDateTime min = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
     long remindSecondsOfDay = ChronoUnit.SECONDS.between(LocalDateTime.now(), LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
 ```
 
-## 工程资源收集
+### 工程资源收集
 ```java 
 
 package com.common;
