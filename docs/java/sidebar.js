@@ -4,8 +4,9 @@ module.exports = [
         collapsable: true,
         children: [
             '/java/java1/1-SortingAlgorithm.md',
-            '/java/java1/2-SearchAlgorithm.md.md',
-            '/java/java1/3-DesignPatterns.md.md',
+            '/java/java1/2-SearchAlgorithm.md',
+            '/java/java1/3-DesignPatterns.md',
+            '/java/java1/4-DataStructures.md',
 
             '/java/java1/knowledge.md',
             '/java/java1/Feature.md',
