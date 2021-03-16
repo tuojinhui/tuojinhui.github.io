@@ -7,7 +7,9 @@ package com.common;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-
+/**
+ * @author common
+ */
 @AllArgsConstructor
 public enum SortingAlgorithm {
 

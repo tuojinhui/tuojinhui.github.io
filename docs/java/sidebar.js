@@ -3,6 +3,10 @@ module.exports = [
         title: 'JAVA知识点',
         collapsable: true,
         children: [
+            '/java/java1/1-SortingAlgorithm.md',
+            '/java/java1/2-SearchAlgorithm.md.md',
+            '/java/java1/3-DesignPatterns.md.md',
+
             '/java/java1/knowledge.md',
             '/java/java1/Feature.md',
             '/java/java1/Executors.md',
@@ -19,7 +23,6 @@ module.exports = [
             '/java/java1/RedBlackTree.md',
             '/java/java1/DefaultFastJsonConfig.md',
             '/java/java1/MapToQueryParam.md',
-            '/java/java1/SortingAlgorithm.md',
 
             '/java/java1/SpringSourceCode.md',
         ]
