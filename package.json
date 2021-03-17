@@ -9,8 +9,6 @@
     "build": "vuepress build docs"
   },
   "dependencies": {
-    "@vssue/api-github-v4": "^1.4.0",
-    "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "dayjs": "^1.10.4",
     "vuepress-plugin-code-copy": "^1.0.6"
   },
