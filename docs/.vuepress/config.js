@@ -48,13 +48,6 @@ module.exports = {
                 buttonText: '立即获取新内容'
             }
         }],
-        ['@vssue/vuepress-plugin-vssue', {
-            platform: 'github-v4',
-            owner: 'tuojinhui',
-            repo: 'tuojinhui.github.io',
-            clientId: '0c5e5feb0ba9e8b9eab8',
-            clientSecret: '5447f009f0e1826b4bcadd5b38d86521faf30768',
-        },],
         ['vuepress-plugin-code-copy', true]
     ]
 }
