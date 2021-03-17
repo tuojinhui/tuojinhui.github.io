@@ -1,7 +1,7 @@
 module.exports = {
     base: '/',
-    title: 'Java技术进阶',
-    description: 'Java技术进阶',
+    title: '随手笔记',
+    description: '随手笔记',
     head: [],
     host: '0.0.0.0',
     port: 8080,

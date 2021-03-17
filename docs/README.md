@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /image/java8.jpg
-heroText: Java 进阶笔记
+heroText: Java 随手笔记
 tagline: 日常工作，学习进阶
 actionText: 进阶 JAVA →
 actionLink: /java/
