@@ -145,7 +145,8 @@ git --version
     
     cd /data/app/
     
-    nohup java -jar "$1".jar >./logs/"$1".out 2>&1 &
+    ## 最小/最大堆大小
+    nohup java -Xms500m -Xmx1024m  -jar "$1".jar >./logs/"$1".out 2>&1 &
 
     ## 指令暂停三秒
     sleep 3s
