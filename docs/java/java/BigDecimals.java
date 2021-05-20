@@ -38,6 +38,7 @@ public class BigDecimals {
         return divide(v1, v2, 10);
     }
 
+
     public static double divide(Double v1, Double v2, int scale) {
         if (scale < 0) {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
