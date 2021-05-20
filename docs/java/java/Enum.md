@@ -1,3 +1,3 @@
 # 通用枚举(Enums)
 
-<<< @/docs/java/java1/Enum.java
+<<< @/docs/java/java/Enum.java

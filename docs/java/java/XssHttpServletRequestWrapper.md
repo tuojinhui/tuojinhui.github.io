@@ -11,7 +11,7 @@
    </dependency>
 
 ```
-<<< @/docs/java/java1/XssHttpServletRequestWrapper.java
+<<< @/docs/java/java/XssHttpServletRequestWrapper.java
 
 
 ::: warning

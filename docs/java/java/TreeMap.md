@@ -4,4 +4,4 @@
 修改root根节点访问属性，修改TreeMap.Entry<K, V>内部类及其属性的访问属性
 :::
 
-<<< @/docs/java/java1/TreeMap.java
+<<< @/docs/java/java/TreeMap.java

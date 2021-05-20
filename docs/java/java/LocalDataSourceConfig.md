@@ -1,6 +1,6 @@
 # 多数据源(MultiDataSource)
 
-<<< @/docs/java/java1/LocalDataSourceConfig.java
+<<< @/docs/java/java/LocalDataSourceConfig.java
 
 ```yaml
 

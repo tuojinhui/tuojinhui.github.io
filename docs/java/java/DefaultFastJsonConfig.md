@@ -12,7 +12,7 @@
 ```
 
 ### 配置消息转换器
-<<< @/docs/java/java1/DefaultFastJsonConfig.java
+<<< @/docs/java/java/DefaultFastJsonConfig.java
 
 
 ::: warning

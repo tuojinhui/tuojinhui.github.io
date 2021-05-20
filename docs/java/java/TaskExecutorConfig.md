@@ -1,4 +1,4 @@
 # 线程池(ThreadPoolTaskExecutor)
 
-<<< @/docs/java/java1/TaskExecutorConfig.java
+<<< @/docs/java/java/TaskExecutorConfig.java
 

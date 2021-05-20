@@ -17,7 +17,7 @@
 
 ```
 
-<<< @/docs/java/java1/RedisKeyExpirationListener.java
+<<< @/docs/java/java/RedisKeyExpirationListener.java
 
 
 ::: warning

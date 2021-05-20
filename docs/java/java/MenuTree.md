@@ -3,10 +3,10 @@
 
 
 ### 菜单节点
-<<< @/docs/java/java1/Node.java
+<<< @/docs/java/java/Node.java
 
 ### 构建测试
-<<< @/docs/java/java1/NodeTest.java
+<<< @/docs/java/java/NodeTest.java
 
 ### 测试结果
 

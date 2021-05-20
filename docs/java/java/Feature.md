@@ -8,7 +8,7 @@
 :::
 
 ### 纵向分割
-<<< @/docs/java/java1/feature/partition.java
+<<< @/docs/java/java/feature/partition.java
 
 ::: tip
 非空判断 -> 去重 -> 分割 -> 循环IN操作 -> 合并 -> 返回

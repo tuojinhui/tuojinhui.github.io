@@ -1,6 +1,6 @@
 # 异常总控(ThrowableIntercept)
 
-<<< @/docs/java/java1/ThrowableInterceptConfig.java
+<<< @/docs/java/java/ThrowableInterceptConfig.java
 
 
 ::: warning
