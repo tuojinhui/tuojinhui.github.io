@@ -194,6 +194,15 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
     Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, v -> v, (v1, v2) -> v1));
 ```
 
+##### 写法五
+```java 
+   return Stream.of(
+            new AbstractMap.SimpleEntry<>("code", code),
+            new AbstractMap.SimpleEntry<>("message", message),
+            new AbstractMap.SimpleEntry<>("success", false)
+    ).collect(HashMap::new, (r, t) -> r.put(t.getKey(), t.getValue()), HashMap::putAll);
+```
+
 ### List操作
 
 ### Objects
