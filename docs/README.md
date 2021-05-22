@@ -2,8 +2,8 @@
 home: true
 heroImage: /image/java8.jpg
 heroText: Java 随手笔记
-tagline: 日常工作，学习进阶
-actionText: 进阶 JAVA →
+tagline: 致力于写出更优雅的Java代码
+actionText: 日常工作，学习进阶 →
 actionLink: /java/
 features:
 - title: 无懈可击
