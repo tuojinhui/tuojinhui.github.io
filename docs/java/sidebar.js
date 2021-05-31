@@ -22,6 +22,7 @@ module.exports = [
             '/java/java/Optional.md',
             '/java/java/MenuTree.md',
             '/java/java/RedBlackTree.md',
+            '/java/java/OptionalCollection.md',
             '/java/java/DefaultFastJsonConfig.md',
             '/java/java/MapToQueryParam.md',
 
