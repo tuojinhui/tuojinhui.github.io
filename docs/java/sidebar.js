@@ -52,12 +52,53 @@ module.exports = [
         ]
     },
 
-
     {
         title: '文件服务',
         collapsable: true,
         children: [
         ]
-    }
+    },
+
+    {
+        title: 'HTTP服务',
+        collapsable: true,
+        children: [
+        ]
+    },
+
+    {
+        title: 'redis-boot-starter',
+        collapsable: true,
+        children: [
+        ]
+    },
+
+    {
+        title: 'rabbit-boot-starter',
+        collapsable: true,
+        children: [
+        ]
+    },
+
+    {
+        title: 'sms-boot-starter',
+        collapsable: true,
+        children: [
+        ]
+    },
+
+    {
+        title: 'oss-boot-starter',
+        collapsable: true,
+        children: [
+        ]
+    },
+
+    {
+        title: 'util-boot-starter',
+        collapsable: true,
+        children: [
+        ]
+    },
 
 ]
