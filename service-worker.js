@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "94fe69c6ec43e2f3d4c3502c5e693521"
+    "revision": "745b3e1825b0cbd5dcc3c781e624ea43"
   },
   {
     "url": "assets/css/0.styles.08292296.css",
@@ -226,8 +226,8 @@ self.__precacheManifest = [
     "revision": "cf5d02ae5fd548639cbf6efc65a28b05"
   },
   {
-    "url": "assets/js/app.191b70c9.js",
-    "revision": "5740d89e3a0bb6c02fc5f4b7d185908e"
+    "url": "assets/js/app.b4f76482.js",
+    "revision": "9f94b8de1cb1d6643bb41eea07a4db51"
   },
   {
     "url": "css/scrollbar.css",
@@ -235,15 +235,15 @@ self.__precacheManifest = [
   },
   {
     "url": "element/element1/index.html",
-    "revision": "a13344b6858098a9c5b96b6a0fe3bc77"
+    "revision": "d6ab5fbf5fae76ab02876a812de3d994"
   },
   {
     "url": "element/element2/index.html",
-    "revision": "261faa32d64fd56f4dc5a9728d6dc936"
+    "revision": "b312a1938b3c7c8a70a271eb7875cafd"
   },
   {
     "url": "element/index.html",
-    "revision": "2124d73b54e9c6f00e6f7fbebc47db49"
+    "revision": "ab1c3e2c7c7d830e3695fb3b61c5338a"
   },
   {
     "url": "image/java8.jpg",
@@ -251,139 +251,139 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "4b2080e67fdcd60b211857b3815ef1f8"
+    "revision": "c0ad54a800a56fcca5d70416e7c0f9b9"
   },
   {
     "url": "java/index.html",
-    "revision": "6a224226767895cc4c84f14512329276"
+    "revision": "e0ec503a7549031d51808e6441ea036e"
   },
   {
     "url": "java/java/1-SortingAlgorithm.html",
-    "revision": "a9867c37fd6e6c16b5560edbc54a4538"
+    "revision": "7fd0d4a30f00711e1071b12b05419e1e"
   },
   {
     "url": "java/java/2-SearchAlgorithm.html",
-    "revision": "42ced06be7e0148c43c556f40ae0d3d9"
+    "revision": "b73e0abc0657655aabd2aa1d16ba6ac7"
   },
   {
     "url": "java/java/3-DesignPatterns.html",
-    "revision": "1c58f80ccd56e4e0033370823dfc143d"
+    "revision": "fa3aed46da1a85a6fe8deb853b010584"
   },
   {
     "url": "java/java/4-DataStructures.html",
-    "revision": "1767c044f165c5923c7b3c050565f341"
+    "revision": "a6e8580108ce9f81c86549daec059a36"
   },
   {
     "url": "java/java/BigDecimals.html",
-    "revision": "5e1150264e4c55c49b5c99d6771061fe"
+    "revision": "92c8c78c9b5d31666cf3083bcff99d45"
   },
   {
     "url": "java/java/DefaultFastJsonConfig.html",
-    "revision": "c8547fb30ad970be750cef29c23dbcc2"
+    "revision": "187632cbcf076e4492de6e22bfe8649e"
   },
   {
     "url": "java/java/Enum.html",
-    "revision": "b8f3fae8716cc3f04021a332cbad2b30"
+    "revision": "ac04e1959e9c89c2ac9e1c350887c3de"
   },
   {
     "url": "java/java/Executors.html",
-    "revision": "dcd2b935eb193c53126cadc59baeb123"
+    "revision": "a37cc1c39541daf84a2c56c6012be605"
   },
   {
     "url": "java/java/Feature.html",
-    "revision": "9135f77ec21f7b8ad194352a2f513b3e"
+    "revision": "6b4e351b3c93515918a105b9428db60b"
   },
   {
     "url": "java/java/Filter.html",
-    "revision": "9edf4adb787a69fa1b0cfe6f4470b587"
+    "revision": "c88bdd08b67397cc4877193cb4e7ee83"
   },
   {
     "url": "java/java/knowledge.html",
-    "revision": "4105aadb409b310896960251dc9dbb2d"
+    "revision": "2a251dbc112ef26d14886fb4a8308ca5"
   },
   {
     "url": "java/java/LocalDataSourceConfig.html",
-    "revision": "ec6b08093ec2fab3b46bc7763f3299d0"
+    "revision": "1ea31bbd7582500919d24b48676ef5d4"
   },
   {
     "url": "java/java/MapToQueryParam.html",
-    "revision": "42f26447044314e49559638fddcff18e"
+    "revision": "251ea6ded53f9031adf8df57dcb6baec"
   },
   {
     "url": "java/java/MenuTree.html",
-    "revision": "4f56d4b7ca5e8ef7e61a4b1654d9ff34"
+    "revision": "a04968e8afd84e4def8eeba7c87c49fd"
   },
   {
     "url": "java/java/Optional.html",
-    "revision": "621016bdc2caff2de6314c1bfb3aa909"
+    "revision": "37d336f2fa837907b2637bb0ea2a62d2"
   },
   {
     "url": "java/java/OptionalCollection.html",
-    "revision": "4be89635701d9910cec8db3418494dee"
+    "revision": "ec498923b71487822b87631f756da6fa"
   },
   {
     "url": "java/java/RedBlackTree.html",
-    "revision": "849fc6bbdb38bc6cce568e5b98b0f30e"
+    "revision": "8467d2e6550796c16b86b1f8f6d1abc4"
   },
   {
     "url": "java/java/RedisKeyExpirationListener.html",
-    "revision": "310a4c830f439ab0e14ebaa1f1e2d58e"
+    "revision": "0178394fe2cd69083320aa35b4b8a177"
   },
   {
     "url": "java/java/Retry.html",
-    "revision": "51d1f6d7ef564f3ab69a7db3f3e26765"
+    "revision": "b90a46e30e0237b2f896c0c9d43bbb2d"
   },
   {
     "url": "java/java/SpringSourceCode.html",
-    "revision": "a7c0f73f3886b61ff9b4457d2665435f"
+    "revision": "016a0566743a8daeb589769450976e7b"
   },
   {
     "url": "java/java/TaskExecutorConfig.html",
-    "revision": "70635972f03923c1883f729e13a79574"
+    "revision": "aa474c03513f78390f59f6ab71d4ade7"
   },
   {
     "url": "java/java/ThrowableInterceptConfig.html",
-    "revision": "f28b0305e9e2392722cf0bdc3fee1205"
+    "revision": "c50ae38318c7985a8019953d303658a8"
   },
   {
     "url": "java/java/TreeMap.html",
-    "revision": "c37627b0f3af2f56c2bdb10be1c1781e"
+    "revision": "2cebfe7910b44ee61f3e8a84cb1308b7"
   },
   {
     "url": "java/java/XssHttpServletRequestWrapper.html",
-    "revision": "635131727ed83b33683d649d170a098e"
+    "revision": "8d183d45af8d0488aa31dca1505c5597"
   },
   {
     "url": "mysql/index.html",
-    "revision": "579c51537705b36d5e1cd20f77baffbd"
+    "revision": "940a1e01913af6031847c082300c1742"
   },
   {
     "url": "mysql/mysql1/index.html",
-    "revision": "5c309747654f3e2bca6f3bcbfde0b198"
+    "revision": "eae1ff1bfea141280ba2b7d41ee0d796"
   },
   {
     "url": "mysql/mysql2/index.html",
-    "revision": "c2b5084e69a8b72fbe31f9e5b246ff46"
+    "revision": "181bc40c685f1996eda9a4b16725c1c5"
   },
   {
     "url": "other/index.html",
-    "revision": "bbf5a95376a1fb3f408014dd875e6b2b"
+    "revision": "139c0a7d6b61ee5d817104d0a01f04e2"
   },
   {
     "url": "other/nginx/nginx.html",
-    "revision": "5d630b6f3926c0373fa18cd3db3e8759"
+    "revision": "b2dd401f6d71dec5586ab39ad7fb13af"
   },
   {
     "url": "vue/index.html",
-    "revision": "8841e23469950e0afb88d5329a69f9d6"
+    "revision": "35f828d12d7d0d592ab5597063700d48"
   },
   {
     "url": "vue/vue1/index.html",
-    "revision": "ab9691f4640e8ce55cca6e42ee56b3dc"
+    "revision": "22344755bca647ca04fdeb822cdd82a7"
   },
   {
     "url": "vue/vue2/index.html",
-    "revision": "9b5d0d0730636480a317ef25ef19d0aa"
+    "revision": "74bd300b07eb94a3f348125f3c34a555"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
