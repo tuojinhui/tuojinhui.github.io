@@ -4,19 +4,19 @@ module.exports = {
     description: '随手笔记',
     head: [
         // 百度统计
-        [
-            "script",
-            {},
-            `
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?15cfc842ea0efabe88c7406335075fdc";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-            `
-        ]
+        // [
+        //     "script",
+        //     {},
+        //     `
+        //     var _hmt = _hmt || [];
+        //     (function() {
+        //       var hm = document.createElement("script");
+        //       hm.src = "https://hm.baidu.com/hm.js?15cfc842ea0efabe88c7406335075fdc";
+        //       var s = document.getElementsByTagName("script")[0];
+        //       s.parentNode.insertBefore(hm, s);
+        //     })();
+        //     `
+        // ]
     ],
     host: '0.0.0.0',
     port: 8080,
