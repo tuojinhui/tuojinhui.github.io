@@ -4,6 +4,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
@@ -13,20 +14,6 @@ jobs:
         run: |
           npm install
           npm run build
-          head="<\/head>"
-          script="var _hmt = _hmt || [];
-                  (function() {
-                    var hm = document.createElement('script');
-                    hm.src = 'https://hm.baidu.com/hm.js?15cfc842ea0efabe88c7406335075fdc';
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(hm, s);
-                  })();"
-          files=`find .vuepress/dist -type f -name "*.html"`
-          for f in $files
-          do
-            sed -i'.bak' -e "s/$head/$script$head/" $f
-            rm -rf "$f.bak"
-          done
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
