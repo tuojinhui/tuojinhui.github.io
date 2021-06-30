@@ -38,8 +38,8 @@ public class NodeTest {
 
     @Test
     public void buildTree() {
-        Map<String, List<Node>> collect = c(nodes).stream().collect(Collectors.groupingBy(Node::getParentId, LinkedHashMap::new, Collectors.toList()));
-        nodes = nodes.stream().filter(Objects::nonNull).peek(n -> n.setChildren(collect.get(n.getId()))).filter(Node::getRootNode).collect(Collectors.toList());
+        Map<String, List<Node>> groups = (nodes = c(nodes)).stream().collect(Collectors.groupingBy(Node::getParentId, LinkedHashMap::new, Collectors.toList()));
+        nodes = nodes.stream().filter(Objects::nonNull).peek(node -> node.setChildren(groups.get(node.getId()))).filter(Node::getRootNode).collect(Collectors.toList());
     }
 
     private <T> List<T> c(List<T> c) {

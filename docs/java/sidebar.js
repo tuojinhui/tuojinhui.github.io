@@ -29,72 +29,72 @@ module.exports = [
 
             '/java/java/SpringSourceCode.md',
         ]
-    },
+    }
 
-    {
-        title: '网关服务',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: '推送服务',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: '短信服务',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: '文件服务',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'HTTP服务',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'redis-boot-starter',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'rabbit-boot-starter',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'sms-boot-starter',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'oss-boot-starter',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'util-boot-starter',
-        collapsable: true,
-        children: []
-    },
-
-    {
-        title: 'Excel操作小技巧',
-        collapsable: true,
-        children: []
-    },
+    // {
+    //     title: '网关服务',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: '推送服务',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: '短信服务',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: '文件服务',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'HTTP服务',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'redis-boot-starter',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'rabbit-boot-starter',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'sms-boot-starter',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'oss-boot-starter',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'util-boot-starter',
+    //     collapsable: true,
+    //     children: []
+    // },
+    //
+    // {
+    //     title: 'Excel操作小技巧',
+    //     collapsable: true,
+    //     children: []
+    // },
 
 ]
