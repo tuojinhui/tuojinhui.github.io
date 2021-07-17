@@ -1,6 +1,11 @@
 package com.common;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.pagination.dialects.MySqlDialect;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -14,14 +19,15 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
+import static com.common.LocalDataSourceConfig.*;
+
 /**
  * local 数据源
  *
  * @author common
  */
 @Configuration
-@MapperScan(basePackages = LocalDataSourceConfig.PACKAGE,
-        sqlSessionFactoryRef = LocalDataSourceConfig.PREFIX + LocalDataSourceConfig.SQL_SESSION_FACTORY)
+@MapperScan(basePackages = PACKAGE, sqlSessionFactoryRef = IDENTIFIER + SQL_SESSION_FACTORY)
 public class LocalDataSourceConfig {
 
     /**
@@ -74,13 +80,20 @@ public class LocalDataSourceConfig {
      */
     @Primary
     @Bean(name = PREFIX + SQL_SESSION_FACTORY)
-    public SqlSessionFactory getSqlSessionFactory(
-            @Qualifier(PREFIX + DATASOURCE) DataSource dataSource) throws Exception {
-        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(LocalDataSourceConfig.MAPPER_LOCATION));
-        return sessionFactory.getObject();
+    public SqlSessionFactory getSqlSessionFactory(@Qualifier(IDENTIFIER + DATASOURCE) DataSource dataSource) throws Exception {
+        final MybatisSqlSessionFactoryBean sqlSessionFactory = new MybatisSqlSessionFactoryBean();
+        sqlSessionFactory.setDataSource(dataSource);
+        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAPPER_LOCATION));
+        PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
+        paginationInnerInterceptor.setMaxLimit(-1L);
+        paginationInnerInterceptor.setOverflow(true);
+        paginationInnerInterceptor.setOptimizeJoin(true);
+        paginationInnerInterceptor.setDialect(new MySqlDialect());
+        paginationInnerInterceptor.setDbType(DbType.MYSQL);
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(paginationInnerInterceptor);
+        sqlSessionFactory.setPlugins(mybatisPlusInterceptor);
+        return sqlSessionFactory.getObject();
     }
 
 }
