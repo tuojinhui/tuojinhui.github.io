@@ -31,9 +31,10 @@ import static com.common.LocalDataSourceConfig.*;
 public class LocalDataSourceConfig {
 
     /**
-     * DataSource 数据源前缀
+     * DataSource 数据源身份标识
      */
-    static final String PREFIX = "local";
+    static final String IDENTIFIER = "local";
+
     /**
      * MAPPER 接口全限定名
      */
