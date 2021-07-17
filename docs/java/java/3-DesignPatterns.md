@@ -88,6 +88,218 @@ public enum DesignPatterns {
 ### 组合模式
 ### 模板方法模式
 ### 策略模式
+
+```java 
+
+package common.inspection.abstracts;
+
+/**
+ * 功能描述：抽象规则类
+ *
+ * @author commomn
+ * @version 1.0
+ * @date 2021-05-26 10:51:51
+ */
+public abstract class AbstractRule {
+
+    /**
+     * 方法描述：策略抽象方法
+     *
+     * @author 拓金辉
+     * @date 2021-07-17 17:26:20
+     */
+    public abstract void doSomething();
+
+    /**
+     * 方法描述：类型判断
+     *
+     * @return java.lang.String
+     *
+     * @author 拓金辉
+     * @date 2021-07-17 17:27:11
+     */
+    public abstract String supports();
+}
+
+```
+
+```java 
+
+package common.inspection.chooser;
+
+import common.inspection.abstracts.AbstractRule;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+/**
+ * 功能描述：策略选择器
+ *
+ * @author common
+ * @version 1.0
+ * @date 2021-05-26 10:55:30
+ */
+@Component
+public class InspectionChooser implements ApplicationContextAware {
+
+    private final Map<String, Optional<AbstractRule>> chooseContext = new HashMap<>();
+    private ApplicationContext applicationContext;
+
+    public AbstractRule choose(String support) {
+        return chooseContext.getOrDefault(support, Optional.empty()).orElseThrow(() -> new RuntimeException("未找到相匹配的解决者"));
+    }
+
+    @Override
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    @PostConstruct
+    public void register() {
+        Map<String, AbstractRule> solvers = c(applicationContext.getBeansOfType(AbstractRule.class));
+        solvers.values().forEach(solver -> chooseContext.put(solver.supports(), Optional.of(solver)));
+    }
+
+    private <K, V> Map<K, V> c(Map<K, V> c) {
+        return Optional.ofNullable(c).orElseGet(Collections::emptyMap);
+    }
+
+}
+
+```
+
+```java 
+
+package common.inspection.solver;
+
+import common.inspection.abstracts.AbstractRule;
+import org.springframework.stereotype.Component;
+
+/**
+ * 功能描述：A策略实现
+ *
+ * @author common
+ * @version 1.0
+ * @date 2021-07-17 17:30:11
+ */
+@Component
+public class StrategySolverA extends AbstractRule {
+
+    @Override
+    public void doSomething() {
+
+    }
+
+    @Override
+    public String supports() {
+        return "A";
+    }
+
+}
+
+```
+
+```java 
+
+package common.inspection.solver;
+
+import common.inspection.abstracts.AbstractRule;
+import org.springframework.stereotype.Component;
+
+/**
+ * 功能描述：B策略实现
+ *
+ * @author common
+ * @version 1.0
+ * @date 2021-07-17 17:31:13
+ */
+@Component
+public class StrategySolverB extends AbstractRule {
+
+    @Override
+    public void doSomething() {
+
+    }
+
+    @Override
+    public String supports() {
+        return "B";
+    }
+
+}
+
+```
+
+
+```java 
+
+package common.inspection.solver;
+
+import common.inspection.abstracts.AbstractRule;
+import org.springframework.stereotype.Component;
+
+/**
+ * 功能描述：C策略实现
+ *
+ * @author common
+ * @version 1.0
+ * @date 2021-07-17 17:31:23
+ */
+@Component
+public class StrategySolverC extends AbstractRule {
+
+    @Override
+    public void doSomething() {
+
+    }
+
+    @Override
+    public String supports() {
+        return "C";
+    }
+
+}
+
+```
+
+```java 
+
+package common.inspection;
+
+import common.inspection.chooser.InspectionChooser;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+/**
+ * 功能描述：使用案例
+ *
+ * @author common
+ * @version 1.0
+ * @date 2021-07-17 17:45:39
+ */
+@Component
+public class Use {
+
+    @Resource
+    private InspectionChooser chooser;
+
+    public void use(){
+        chooser.choose("").doSomething();
+    }
+
+}
+
+```
+
 ### 命令模式
 ### 责任链模式
 ### 状态模式
