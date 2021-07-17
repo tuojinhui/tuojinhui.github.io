@@ -27,12 +27,11 @@ public class ThrowableInterceptConfig {
     @Value("${spring.application.name}")
     private String name;
 
-
     /**
      * 账号被禁用
      */
     @ExceptionHandler(DisabledAccountException.class)
-    public Map<String, Object> DisabledAccountException(DisabledAccountException e) {
+    public Map<String, Object> handleError(DisabledAccountException e) {
         return create(" 账号被禁用！", e);
     }
 
@@ -40,7 +39,7 @@ public class ThrowableInterceptConfig {
      * 账号被锁定
      */
     @ExceptionHandler(LockedAccountException.class)
-    public Map<String, Object> LockedAccountException(LockedAccountException e) {
+    public Map<String, Object> handleError(LockedAccountException e) {
         return create("账号被锁定！", e);
     }
 
@@ -48,7 +47,7 @@ public class ThrowableInterceptConfig {
      * 用户名错误
      */
     @ExceptionHandler(UnknownAccountException.class)
-    public Map<String, Object> UnknownAccountException(UnknownAccountException e) {
+    public Map<String, Object> handleError(UnknownAccountException e) {
         return create("用户名错误！", e);
     }
 
@@ -56,7 +55,7 @@ public class ThrowableInterceptConfig {
      * 密码错误
      */
     @ExceptionHandler(IncorrectCredentialsException.class)
-    public Map<String, Object> IncorrectCredentialsException(IncorrectCredentialsException e) {
+    public Map<String, Object> handleError(IncorrectCredentialsException e) {
         return create("密码错误！", e);
     }
 
@@ -64,7 +63,7 @@ public class ThrowableInterceptConfig {
      * 凭证异常
      */
     @ExceptionHandler(CredentialsException.class)
-    public Map<String, Object> CredentialsException(CredentialsException e) {
+    public Map<String, Object> handleError(CredentialsException e) {
         return create("凭证异常！", e);
     }
 
@@ -72,7 +71,7 @@ public class ThrowableInterceptConfig {
      * 并发访问异常
      */
     @ExceptionHandler(ConcurrentAccessException.class)
-    public Map<String, Object> ConcurrentAccessException(ConcurrentAccessException e) {
+    public Map<String, Object> handleError(ConcurrentAccessException e) {
         return create("并发访问异常！", e);
     }
 
@@ -80,7 +79,7 @@ public class ThrowableInterceptConfig {
      * 认证次数超过限制
      */
     @ExceptionHandler(ExcessiveAttemptsException.class)
-    public Map<String, Object> ExcessiveAttemptsException(ExcessiveAttemptsException e) {
+    public Map<String, Object> handleError(ExcessiveAttemptsException e) {
         return create("认证次数超过限制！", e);
     }
 
@@ -88,7 +87,7 @@ public class ThrowableInterceptConfig {
      * 未认证错误
      */
     @ExceptionHandler(UnauthenticatedException.class)
-    public Map<String, Object> UnauthenticatedException(UnauthenticatedException e) {
+    public Map<String, Object> handleError(UnauthenticatedException e) {
         return create("未认证错误!", e);
     }
 
@@ -96,25 +95,23 @@ public class ThrowableInterceptConfig {
      * 未授权错误
      */
     @ExceptionHandler(UnauthorizedException.class)
-    public Map<String, Object> UnauthorizedException(UnauthorizedException e) {
+    public Map<String, Object> handleError(UnauthorizedException e) {
         return create("未授权错误!", e);
     }
-
 
     /**
      * 认证异常
      */
     @ExceptionHandler(AuthenticationException.class)
-    public Map<String, Object> AuthenticationException(AuthenticationException e) {
+    public Map<String, Object> handleError(AuthenticationException e) {
         return create("认证异常!", e);
     }
-
 
     /**
      * 总控异常
      */
     @ExceptionHandler(Throwable.class)
-    public Map<String, Object> Throwable(Throwable e) {
+    public Map<String, Object> handleError(Throwable e) {
         return create("服务器繁忙,请稍后重试!", e);
     }
 
