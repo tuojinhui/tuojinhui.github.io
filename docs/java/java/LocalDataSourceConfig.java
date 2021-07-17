@@ -60,9 +60,9 @@ public class LocalDataSourceConfig {
      * 创建数据源实例
      */
     @Primary
-    @Bean(name = PREFIX + DATASOURCE)
-    @Qualifier(PREFIX + DATASOURCE)
-    @ConfigurationProperties(prefix = "spring.datasource." + PREFIX + DATASOURCE)
+    @Bean(name = IDENTIFIER + DATASOURCE)
+    @Qualifier(IDENTIFIER + DATASOURCE)
+    @ConfigurationProperties(prefix = "spring.datasource." + IDENTIFIER + DATASOURCE)
     public DataSource getDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
@@ -71,7 +71,7 @@ public class LocalDataSourceConfig {
      * 创建该数据源事务管理器实例
      */
     @Primary
-    @Bean(name = PREFIX + TRANSACTION_MANAGER)
+    @Bean(name = IDENTIFIER + TRANSACTION_MANAGER)
     public DataSourceTransactionManager getTransactionManager() {
         return new DataSourceTransactionManager(getDataSource());
     }
@@ -80,7 +80,7 @@ public class LocalDataSourceConfig {
      * 创建MyBatis SQL会话工厂实例
      */
     @Primary
-    @Bean(name = PREFIX + SQL_SESSION_FACTORY)
+    @Bean(name = IDENTIFIER + SQL_SESSION_FACTORY)
     public SqlSessionFactory getSqlSessionFactory(@Qualifier(IDENTIFIER + DATASOURCE) DataSource dataSource) throws Exception {
         final MybatisSqlSessionFactoryBean sqlSessionFactory = new MybatisSqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource);
