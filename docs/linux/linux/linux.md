@@ -1,15 +1,18 @@
-# Linux知识记录
+# 信息整理
 [[toc]]
 
 
-## Systemctl启动自定义命令
+## Systemctl设置自定义命令启动
 
 进入/usr/lib/systemd/system目录
-```linux
+
+```shell
 cd /usr/lib/systemd/system 
 ```
+
 创建并配置frps.service文件
-```linux
+
+```shell
 [Unit]
 Description=fras service
 After=network.target syslog.target
@@ -22,7 +25,15 @@ ExecStart=/opt/frp_0.37.1_linux_amd64/frps -c /opt/frp_0.37.1_linux_amd64/frps.i
 [Install]
 WantedBy=multi-user.target
 ```
+
 重新加载配置
-```linux
+
+```shell
 systemctl daemon-reload
+```
+
+Systemctl启动frps
+
+```shell
+systemctl start frps
 ```
