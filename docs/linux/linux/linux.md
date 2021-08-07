@@ -4,7 +4,7 @@
 
 ## Systemctl设置自定义命令启动
 
-进入/usr/lib/systemd/system目录
+进入systemd service目录
 
 ```shell
 cd /usr/lib/systemd/system 
