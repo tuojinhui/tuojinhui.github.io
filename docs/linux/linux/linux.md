@@ -14,7 +14,7 @@ cd /usr/lib/systemd/system
 
 ```shell
 [Unit]
-Description=fras service
+Description=frps service
 After=network.target syslog.target
 Wants=network.target
 
