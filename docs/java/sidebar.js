@@ -1,7 +1,7 @@
 module.exports = [
 
     {
-        title: '知识存储',
+        title: 'Java知识记录',
         collapsable: true,
         children: [
             '/java/java/1-SortingAlgorithm.md',

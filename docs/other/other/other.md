@@ -233,12 +233,12 @@ git --version
 ```shell script
     cd /opt
     wget https://mirrors.huaweicloud.com/nginx/nginx-1.9.9.tar.gz
-    tar -zxvf nginx-1.18.0.tar.gz
-    cd nginx-1.18.0
+    tar -zxvf other-1.18.0.tar.gz
+    cd other-1.18.0
      
-    ./configure --sbin-path=/opt/nginx/nginx \
-    --conf-path=/opt/nginx/nginx.conf \
-    --pid-path=/opt/nginx/nginx.pid \
+    ./configure --sbin-path=/opt/other/other \
+    --conf-path=/opt/other/other.conf \
+    --pid-path=/opt/other/other.pid \
     --with-http_gzip_static_module \
     --with-http_stub_status_module \
     --with-file-aio \
