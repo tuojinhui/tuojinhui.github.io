@@ -109,7 +109,7 @@ npm -v
  <br/>
 
  
- 4.查看cnpm镜像设置：
+ 5.查看cnpm镜像设置：
  <br/>
  
     cnpm config get registry 
