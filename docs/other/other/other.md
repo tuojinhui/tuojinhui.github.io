@@ -82,24 +82,32 @@ node -v
 npm -v
 ```
 ::: warning
-
- 1.通过cnpm使用淘宝镜像：
- <br/>
  
-    npm install -g cnpm --registry=https://registry.npm.taobao.org
- <br/>
- 
- 2.将npm设置为淘宝镜像：
+ 1.将npm设置为淘宝镜像：
  <br/>
  
     npm config set registry https://registry.npm.taobao.org
  <br/>
- 
- 3.查看npm镜像设置：
+
+ 2.将cnpm设置为淘宝镜像：
+ <br/>
+
+    cnpm config set registry https://registry.npm.taobao.org
+ <br/>
+
+
+ 3.全局安装cnpm：
+ <br/>
+
+    npm install -g cnpm
+ <br/>
+
+ 4.查看npm镜像设置：
  <br/>
  
     npm config get registry
  <br/>
+
  
  4.查看cnpm镜像设置：
  <br/>
