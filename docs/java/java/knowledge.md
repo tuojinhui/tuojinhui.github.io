@@ -200,7 +200,7 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 
 ###### 写法四
 ```java
-    Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, v -> v, (v1, v2) -> v1));
+    Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, Function.identity(), (v1, v2) -> v1));
 ```
 
 ##### 写法五
