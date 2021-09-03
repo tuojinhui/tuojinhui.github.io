@@ -1,6 +1,15 @@
 # 信息整理
 [[toc]]
 
+### 对象类型强转
+```java 
+
+    @SuppressWarnings("unchecked")
+    <T> T cast(Object x) {
+        return (T) x;
+    }
+
+```
 
 ### 手机号脱敏
 ```java
