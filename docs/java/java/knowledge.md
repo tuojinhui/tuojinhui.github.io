@@ -1,7 +1,9 @@
 # 信息整理
+
 [[toc]]
 
 ### 对象类型强转
+
 ```java 
 
     @SuppressWarnings("unchecked")
@@ -12,6 +14,7 @@
 ```
 
 ### 手机号脱敏
+
 ```java
 
     final static java.util.regex.Pattern PATTERN_PHONE = Pattern.compile("(\\d{3})\\d{4}(\\d{4})");
@@ -23,6 +26,7 @@
 ```
 
 ### 身份证号脱敏
+
 ```java
 
     final static java.util.regex.Pattern PATTERN_ID_CARD = Pattern.compile("(\\d{4})\\d{10}(\\w{4})");
@@ -33,11 +37,11 @@
 
 ```
 
-::: warning
-在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。 
+::: warning 在使用正则表达式时，利用好其预编译功能，可以有效加快正则匹配速度。
 :::
 
 ### 小数格式化(BigDecimal)
+
 ```java 
 
     DecimalFormat DECIMALFORMAT = new DecimalFormat("000000000000");
@@ -48,8 +52,8 @@
 
 ```
 
-
 ### 提供精确加法运算(BigDecimal)
+
 ```java 
 
     public static double add(Double v1, Double v2) {
@@ -59,6 +63,7 @@
 ```
 
 ### 提供精确减法运算(BigDecimal)
+
 ```java 
 
     public static double subtract(Double v1, Double v2) {
@@ -68,6 +73,7 @@
 ```
 
 ### 提供精确乘法运算(BigDecimal)
+
 ```java
 
     public static double multiply(Double v1, Double v2) {
@@ -77,6 +83,7 @@
 ```
 
 ### 提供精确除法运算(BigDecimal)
+
 ```java 
 
     public static double divide(Double v1, Double v2) {
@@ -93,6 +100,7 @@
 ```
 
 ### 提供精确求和运算(BigDecimal)
+
 ```java
 
     public static void main(String[] args) {
@@ -103,12 +111,11 @@
 
 ```
 
-::: warning
-无论是长整形或者单精度浮点型亦或双精度浮点型的数据转换为BigDecimal时，
-都建议先转换为对应的字符串，然后创建一个参数为字符串的BigDecimal实例。
+::: warning 无论是长整形或者单精度浮点型亦或双精度浮点型的数据转换为BigDecimal时， 都建议先转换为对应的字符串，然后创建一个参数为字符串的BigDecimal实例。
 :::
 
 ### 流排序
+
 ```java 
 
     public static void main(String[] args) {
@@ -117,12 +124,12 @@
     }
 
 ```
-::: warning
-Comparator.comparing需要传两个参数， Function函数式接口 和 Comparator比较器，
-Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序排序
+
+::: warning Comparator.comparing需要传两个参数， Function函数式接口 和 Comparator比较器， Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序排序
 :::
 
 ### 资源加载器
+
 ```java 
 
     final static org.springframework.core.io.ResourceLoader RESOURCE_LOADER = new DefaultResourceLoader(Object.class.getClassLoader());
@@ -133,12 +140,12 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 
 ```
 
-::: warning
-使用Spring框架默认的资源加载器的优点，可以帮助我们加载类路径下的资源，强大之处在于即使资源被打包进jar中依然能够加载，
-除此之外能够根据资源前缀自动加载相应的资源。eg: classpath:、file:、jar:、war:、等一系列资源
+::: warning 使用Spring框架默认的资源加载器的优点，可以帮助我们加载类路径下的资源，强大之处在于即使资源被打包进jar中依然能够加载， 除此之外能够根据资源前缀自动加载相应的资源。eg: classpath:、file:
+、jar:、war:、等一系列资源
 :::
 
 ### 路径匹配器
+
 ```java 
 
     private static final String IGNORED_URL = "/**/ignored/**";
@@ -151,11 +158,11 @@ Comparator比较器需要指定NULL在首部或末尾以及自然排序或逆序
 
 ```
 
-::: warning
-Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * | 匹配0或者任意数量的字符 | ** | 匹配0或者更多的目录
+::: warning Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符 | * | 匹配0或者任意数量的字符 | ** | 匹配0或者更多的目录
 :::
 
 ### 附件标识
+
 ```java 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
@@ -169,6 +176,7 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 :::
 
 ### 进制转换
+
 ```java 
 
     public static String toString(byte[] bytes) {
@@ -184,26 +192,31 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 ### Map操作
 
 ###### 写法一
+
 ```java
     Collections.emptyMap();
 ```
 
 ###### 写法二
+
 ```java
     Collections.singletonMap("k", "v");
 ```
 
 ###### 写法三
+
 ```java
     Stream.of(new AbstractMap.SimpleEntry<>("k", "v")).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 ```
 
 ###### 写法四
+
 ```java
     Optional.of(tenants).orElseGet(Collections::emptyList).stream().collect(Collectors.toMap(TctenTenant::getTenid, Function.identity(), (v1, v2) -> v1));
 ```
 
 ##### 写法五
+
 ```java 
    return Stream.of(
             new AbstractMap.SimpleEntry<>("code", code),
@@ -215,6 +228,7 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 ### List操作
 
 ### Objects
+
 ```java 
 
  public void compare(Integer a, Integer b) {
@@ -226,15 +240,35 @@ Ant风格路径表达式,匹配url有三种。 | ? | 匹配任何单字符  | * 
 
 ```
 
+### 时间处理
 
-### 当天最大最小时间
 ```java
+    
+    // 当天最大最小时间
     LocalDateTime max = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
     LocalDateTime min = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+    
+    // 当天剩余时间
+    // one
     long remindSecondsOfDay = ChronoUnit.SECONDS.between(LocalDateTime.now(), LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
+    // two 
+    long remindSecondsOfDay = ChronoUnit.SECONDS.between(LocalDateTime.now(), LocalDateTime.now().with(LocalTime.MAX));
+    // three
+    long remindSecondsOfDay = TimeUnit.SECONDS.toSeconds(Duration.between(LocalTime.now(), LocalTime.MAX).getSeconds());
+    
+    // 在时间区间内
+    LocalDateTime now = LocalDateTime.now();
+    LocalDateTime startTime = now.plusDays(1);
+    LocalDateTime endTime = now.plusDays(2);
+
+    boolean condition1 = Objects.compare(now, startTime, ChronoLocalDateTime::compareTo) >= BigDecimal.ZERO.intValue();
+    boolean condition2 = Objects.compare(now, endTime, ChronoLocalDateTime::compareTo) <= BigDecimal.ZERO.intValue();
+    boolean inPeriod = (condition1 && condition2);
+    
 ```
 
 ### 工程资源收集
+
 ```java 
 
 package com.common;
