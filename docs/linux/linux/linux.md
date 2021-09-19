@@ -38,7 +38,7 @@ Systemctl启动frps
 systemctl start frps
 ```
 
-## 清除jetbrains适用信息
+## 清除jetbrains评估密钥
 
 mac || linux, 新建 reset_jetbrains_eval_mac_linux.sh
 
