@@ -11,6 +11,7 @@ module.exports = [
 
             '/java/java/knowledge.md',
             '/java/java/Feature.md',
+            '/java/java/Memoize.md',
             '/java/java/Executors.md',
             '/java/java/TaskExecutorConfig.md',
             '/java/java/BigDecimals.md',
