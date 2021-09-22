@@ -3,6 +3,11 @@
 
 ### 缓存方法
 
+此方法原理和mybatis一级缓存原理一致，
+借助了mybatis的Cachekey实现了结果缓存，
+该缓存生命周期只针对当前线程即ThreadLocal，
+在用户不需要缓存时需主动调用clear方法清除数据。
+
 ```java 
 
 package com.common;
