@@ -37,13 +37,13 @@ public class SubscribeContext {
     private final ThreadLocal<Map<CacheKey, Object>> contextThreadLocal = ThreadLocal.withInitial(HashMap::new);
 
     /**
-     * 方法描述：创建对象
+     * 方法描述：获取对象
      *
-     * @param objectId 优惠券id
-     * @return com.billbear.coupon.entity.Coupon
+     * @param objectId 对象id
+     * @return java.lang.Object
      *
      * @author 拓金辉
-     * @date 2021-08-24 16:18:39
+     * @date 2021-09-22 17:45:28
      */
     public Object getObject(String objectId) {
         return memoize(createCacheKey(objectId), Object::new);
@@ -106,6 +106,5 @@ public class SubscribeContext {
     }
 
 }
-
 
 ```
