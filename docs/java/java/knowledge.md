@@ -305,3 +305,13 @@ public class TestRunner {
 
 }
 ```
+
+### sql不区分大小写查询
+
+```sql 
+
+<if test="form.goodsName != null and form.goodsName !=''">
+    AND LOWER(gds.goods_name) like LOWER(concat('%',#{form.goodsName},'%'))
+</if>
+
+```
