@@ -7,6 +7,7 @@ module.exports = [
             {text: 'Linux', link: '/linux/'},
             {text: 'Other', link: '/other/'},
             {text: 'Vue', link: '/vue/'},
+            {text: 'WeChat', link: '/wechat/'},
         ]
     },
     {text: '关于', link: '/about/'},

@@ -4,5 +4,6 @@ module.exports = {
     '/java/': require('../java/sidebar'),
     '/linux/': require('../linux/sidebar'),
     '/other/': require('../other/sidebar'),
-    '/vue/': require('../vue/sidebar')
+    '/vue/': require('../vue/sidebar'),
+    '/wechat/': require('../wechat/sidebar')
 }

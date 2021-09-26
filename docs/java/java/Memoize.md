@@ -66,11 +66,10 @@ public class SubscribeContext {
     private CacheKey createCacheKey(Object... args) {
         CacheKey cacheKey = new CacheKey();
         StackTraceElement element = Thread.currentThread().getStackTrace()[1];
-        String stackTraceElement = Stream.of(
-                element.getClassName(), element.getMethodName(),
-                element.getLineNumber(), element.getFileName()
-        ).map(String::valueOf).collect(Collectors.joining());
-        cacheKey.update(stackTraceElement);
+        cacheKey.update(element.getClassName());
+        cacheKey.update(element.getMethodName());
+        cacheKey.update(element.getLineNumber());
+        cacheKey.update(element.getFileName());
         cacheKey.update(JSON.toJSONString(args));
         return cacheKey;
     }
