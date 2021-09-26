@@ -51,21 +51,21 @@ public class SubscribeContext {
      * @date 2021-09-22 17:45:28
      */
     public Object getObject(String objectId) {
-        return memoize(createCacheKey(objectId), Object::new);
+        return memoize(createCacheKey(Thread.currentThread().getStackTrace()[1], objectId), Object::new);
     }
 
     /**
      * 方法描述：创建缓存key
      *
-     * @param args 变长参数
+     * @param element 栈元素
+     * @param args    变长参数
      * @return org.apache.ibatis.cache.CacheKey
      *
      * @author 拓金辉
      * @date 2021-09-21 21:26:32
      */
-    private CacheKey createCacheKey(Object... args) {
+    private CacheKey createCacheKey(StackTraceElement element, Object... args) {
         CacheKey cacheKey = new CacheKey();
-        StackTraceElement element = Thread.currentThread().getStackTrace()[1];
         cacheKey.update(element.getClassName());
         cacheKey.update(element.getMethodName());
         cacheKey.update(element.getLineNumber());
