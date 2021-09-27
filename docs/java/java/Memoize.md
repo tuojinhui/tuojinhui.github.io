@@ -1,10 +1,14 @@
 # 缓存方法(Memoize)
+
 [[toc]]
 
 ### 缓存方法
 
 1. 此方法原理和mybatis一级缓存原理一致；
-2. 借助了mybatis的Cachekey实现了结果缓存 [mybatis createCacheKey](https://github.com/mybatis/mybatis-3/blob/mybatis-3.5.7/src/main/java/org/apache/ibatis/executor/BaseExecutor.java#L195)；
+2.
+
+借助了mybatis的Cachekey实现了结果缓存 [mybatis createCacheKey](https://github.com/mybatis/mybatis-3/blob/mybatis-3.5.7/src/main/java/org/apache/ibatis/executor/BaseExecutor.java#L195)；
+
 3. 该缓存生命周期只针对当前线程即ThreadLocal；
 4. 在用户不需要缓存时需主动调用clear方法清除数据。
 
@@ -51,20 +55,20 @@ public class SubscribeContext {
      * @date 2021-09-22 17:45:28
      */
     public Object getObject(String objectId) {
-        return memoize(createCacheKey(Thread.currentThread().getStackTrace()[1], objectId), Object::new);
+        return memoize(createCacheKey(objectId), Object::new);
     }
 
     /**
      * 方法描述：创建缓存key
      *
-     * @param element 栈元素
      * @param args    变长参数
      * @return org.apache.ibatis.cache.CacheKey
      *
      * @author 拓金辉
      * @date 2021-09-21 21:26:32
      */
-    private CacheKey createCacheKey(StackTraceElement element, Object... args) {
+    private CacheKey createCacheKey(Object... args) {
+        StackTraceElement element = Thread.currentThread().getStackTrace()[2];
         CacheKey cacheKey = new CacheKey();
         cacheKey.update(element.getClassName());
         cacheKey.update(element.getMethodName());
