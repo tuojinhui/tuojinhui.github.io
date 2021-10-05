@@ -11,14 +11,17 @@
 
     <div class="btn-row">
       <button class="btn" @click="login">
-        OK
+        登录
+      </button>
+      <button class="btn" @click="cancel">
+        取消
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import {STORAGE_KEY} from './helper'
+import auth from './auth'
 
 export default {
   data() {
@@ -29,8 +32,8 @@ export default {
   },
   methods: {
     login() {
-      var canLogin = this.username && this.password;
-      if (!canLogin) {
+      var validateSucess = (this.username && this.password);
+      if (!validateSucess) {
         this.$dlg.alert('用户名或密码不能为空', {
           messageType: 'warning'
         })
@@ -45,13 +48,19 @@ export default {
         return;
       }
 
-      const data = JSON.stringify({
+      const data = {
         name: this.username,
         time: new Date().getTime()
-      })
-      window.localStorage.setItem(STORAGE_KEY, data)
+      }
+
+      auth.addAuth(data);
+      this.$emit('close', true)
+    },
+
+    cancel(){
       this.$emit('close', true)
     }
+
   }
 }
 </script>
@@ -67,6 +76,8 @@ export default {
     margin-top 1rem
 
   .btn
+    margin-left: 10px;
+    margin-right: 10px;
     padding 0.6rem 2rem
     outline none
     background-color #60C084

@@ -27,7 +27,7 @@ module.exports = {
     extraWatchFiles: [],
     patterns: ['**/*.md', '**/*.vue'],
     themeConfig: {
-        nav: require('./nav'),
+        nav: require('./navbar'),
         sidebar: require('./sidebar'),
         sidebarDepth: 2,
         lastUpdated: '上次更新 ',
