@@ -57,7 +57,7 @@ module.exports = {
         },],
         ['@vuepress/medium-zoom'],
         ['@vuepress/pwa', {
-            serviceWorker: true,
+            serviceWorker: false,
             updatePopup: {
                 message: '有新内容更新啦~',
                 buttonText: '立即获取新内容'
