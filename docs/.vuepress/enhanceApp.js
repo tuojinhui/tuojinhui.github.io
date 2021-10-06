@@ -17,27 +17,27 @@ export default ({
                     }
                 }
 
-                var checkAuthResult = false;
+                let result = false;
                 if (this.$dlg) {
-                    checkAuthResult = doCheckAuth()
+                    result = doCheckAuth()
                 } else {
                     import('v-dialogs').then(resp => {
                         Vue.use(resp.default)
                         this.$nextTick(() => {
-                            checkAuthResult = doCheckAuth()
+                            result = doCheckAuth()
                         })
                     })
                 }
 
-                if (checkAuthResult) {
+                if (result) {
                     next();
                 }
 
             })
 
             const doCheckAuth = () => {
-                var checkAuthResult = auth.checkAuth();
-                if (!checkAuthResult) {
+                const result = auth.checkAuth();
+                if (!result) {
                     this.$dlg.modal(Login, {
                         width: 300,
                         height: 280,
@@ -52,7 +52,7 @@ export default ({
                         }
                     })
                 }
-                return checkAuthResult;
+                return result;
             }
 
         },
