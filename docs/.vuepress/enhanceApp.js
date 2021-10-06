@@ -11,12 +11,6 @@ export default ({
         mounted() {
 
             router.beforeEach((to, from, next) => {
-                if (typeof _hmt != "undefined") {
-                    if (to.path) {
-                        _hmt.push(["_trackPageview", to.fullPath]);
-                    }
-                }
-
                 let result = false;
                 if (this.$dlg) {
                     result = doCheckAuth()
