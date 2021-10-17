@@ -23,7 +23,7 @@ module.exports = {
         displayAllHeaders: true,
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页',
-        serviceWorker: {updatePopup: true},
+        serviceWorker: {updatePopup: false},
     },
     devServer: {
         open: true
@@ -42,7 +42,7 @@ module.exports = {
         },],
         ['@vuepress/medium-zoom'],
         ['@vuepress/pwa', {
-            serviceWorker: true,
+            serviceWorker: false,
             updatePopup: {
                 message: '有新内容更新啦~',
                 buttonText: '立即获取新内容'
