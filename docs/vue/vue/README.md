@@ -148,3 +148,9 @@ import '@/directive/permission.js'
 
     }
 ```
+
+## ES6 swap array
+
+arr = [1,2,3,4];
+[arr[0], arr[1]] = [arr[1], arr[0]];
+arr = [2,1,3,4];
