@@ -112,3 +112,35 @@ End If
 MsgBox "done"
 
 ```
+
+
+## windows清除快捷小箭头
+
+1.去掉小箭头
+
+```java
+
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /d "%systemroot%\system32\imageres.dll,197" /t reg_sz /f
+taskkill /f /im explorer.exe
+attrib -s -r -h "%userprofile%\AppData\Local\iconcache.db"
+del "%userprofile%\AppData\Local\iconcache.db" /f /q
+start explorer
+pause
+
+```
+复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开，去掉小箭头。
+
+
+2.恢复小箭头
+```java
+
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /f
+taskkill /f /im explorer.exe
+attrib -s -r -h "%userprofile%\AppData\Local\iconcache.db"
+del "%userprofile%\AppData\Local\iconcache.db" /f /q
+start explorer
+pause
+
+```
+复制上面的代码。新建一个文本文件。粘贴后另存为.bat文件，然后以管理员身份打开，回复小箭头。
+
