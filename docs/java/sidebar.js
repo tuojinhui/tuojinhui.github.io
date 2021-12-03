@@ -28,7 +28,7 @@ module.exports = [
             '/java/java/DefaultFastJsonConfig.md',
             '/java/java/MapToQueryParam.md',
 
-            '/java/java/SpringSourceCode.md',
+            '/java/java/SpringSourceCode.md'
         ]
     }
 
