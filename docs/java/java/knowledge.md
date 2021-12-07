@@ -306,6 +306,15 @@ public class TestRunner {
 }
 ```
 
+### queryParam参数处理
+
+```java 
+
+    Joiner.on("&").withKeyValueSeparator("=").join(Collections.emptyMap());
+    Splitter.on("&").withKeyValueSeparator("=").split("");
+
+```
+
 ### sql不区分大小写查询
 
 ```sql 
