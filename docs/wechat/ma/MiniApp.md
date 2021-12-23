@@ -8,24 +8,26 @@
 
 ```java
 
-  @Resource
+    // "pages/index/index"
+
+    @Resource
     private WxMaService wxMaService;
 
-    public String genSchemeUrl(String code, String state, String appId) {
+    public String genSchemeUrl(String appId, String path, String query) {
         try {
-            log.debug("生成小程序RUL参数, code:{}, state:{}, appId:{}", code, state, appId);
+            log.debug("生成小程序URL Scheme, appId:{}, path:{}, query:{}", appId, path, query);
             WxMaService wxMaService = this.wxMaService.switchoverTo(appId);
             final WxMaSchemeService wxMaSchemeService = wxMaService.getWxMaSchemeService();
             WxMaGenerateSchemeRequest wxMaGenerateSchemeRequest = WxMaGenerateSchemeRequest.newBuilder().build();
             WxMaGenerateSchemeRequest.JumpWxa jumpWxa = WxMaGenerateSchemeRequest.JumpWxa.newBuilder().build();
-            jumpWxa.setPath("pages/index/index");
-            jumpWxa.setQuery(String.format("code=%s&state=%s", code, state));
+            jumpWxa.setPath(path);
+            jumpWxa.setQuery(query);
             wxMaGenerateSchemeRequest.setIsExpire(true);
             wxMaGenerateSchemeRequest.setExpireTime(LocalDateTime.now().plusMonths(1L).toEpochSecond(ZoneOffset.ofHours(8)));
             wxMaGenerateSchemeRequest.setJumpWxa(jumpWxa);
             return wxMaSchemeService.generate(wxMaGenerateSchemeRequest);
         } catch (WxErrorException e) {
-            log.error("生成小程序RUL错误, 异常信息={}", e.getMessage(), e);
+            log.error("生成小程序URL Scheme错误, 异常信息={}", e.getMessage(), e);
             e.printStackTrace();
             throw new RuntimeException(e.getMessage());
         } finally {
@@ -46,7 +48,7 @@
 
 ::: warning
 
-  跳转页面的动态参数只能携带一个且只能是q，携带其它参数会认为是 open.weixin.qq.com链接的参数，故而跳转携带无效。解决办法：携带q参数，参数值json序列化处理
+  跳转页面的动态参数只能携带一个且只能是q，携带其它参数会认为是 open.weixin.qq.com链接的参数，故而跳转携带无效。解决办法：携带q参数，参数值进行url编码并json序列化处理
 
 :::
 
