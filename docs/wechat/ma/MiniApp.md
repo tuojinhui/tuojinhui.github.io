@@ -4,7 +4,7 @@
 
 ## 微信小程序获取openId,nickName,avatarUrl
 
-  微信小程序获取openId,nickName,avatarUrl
+    微信小程序获取openId,nickName,avatarUrl
 
 ## 微信小程序生成 URL Scheme 
 
@@ -54,7 +54,7 @@
 
 ::: warning
 
-跳转页面的动态参数只能携带一个且只能是q，携带其它参数会认为是 open.weixin.qq.com链接的参数，故而跳转携带无效。解决办法：携带q参数，参数值进行url编码并json序列化处理
+    跳转页面的动态参数只能携带一个且只能是q，携带其它参数会认为是 open.weixin.qq.com链接的参数，故而跳转携带无效。解决办法：携带q参数，参数值进行url编码并json序列化处理
 
 :::
 
@@ -140,3 +140,11 @@ public class Session {
 }
 
 ```
+
+## 微信小程序消息订阅
+
+    微信小程序消息订阅
+
+## 微信小程序支付
+
+    微信小程序支付
