@@ -227,7 +227,42 @@ public class Session {
 
 ## 微信小程序消息订阅
 
-    微信小程序消息订阅
+```java 
+
+ /**
+     * 方法描述：发送订阅消息
+     * <a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/subscribe-message/subscribeMessage.send.html"></a>
+     *
+     * @param appId            微信小程序appId
+     * @param toUSer           接收者（用户）的 openid
+     * @param templateId       所需下发的订阅模板id
+     * @param page             点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
+     * @param miniProgramState 跳转小程序类型：developer为开发版；trial为体验版；formal为正式版；默认为正式版
+     * @param data             模板内容，格式形如 { "key1": { "value": any }, "key2": { "value": any } }
+     * @return java.lang.Boolean
+     * @author 拓金辉
+     * @date 2021-08-11 14:09:20
+     */
+    public Boolean sendSubscribeMsg(String appId, String toUSer, String templateId, String page, String miniProgramState, List<WxMaSubscribeMessage.MsgData> data) throws WxErrorException {
+        try {
+            final WxMaService wxMaService = this.wxMaService.switchoverTo(appId);
+            final WxMaMsgService msgService = wxMaService.getMsgService();
+            WxMaSubscribeMessage wxMaSubscribeMessage = new WxMaSubscribeMessage();
+            wxMaSubscribeMessage.setToUser(toUSer);
+            wxMaSubscribeMessage.setTemplateId(templateId);
+            wxMaSubscribeMessage.setPage(page);
+            wxMaSubscribeMessage.setMiniprogramState(miniProgramState);
+            wxMaSubscribeMessage.setLang(WxMaConstants.MiniProgramLang.ZH_CN);
+            wxMaSubscribeMessage.setData(new ArrayList<>());
+            wxMaSubscribeMessage.getData().addAll(data);
+            msgService.sendSubscribeMsg(wxMaSubscribeMessage);
+            return Boolean.TRUE;
+        } finally {
+            WxMaConfigHolder.remove();
+        }
+    }
+
+```
 
 ## 微信小程序支付
 
