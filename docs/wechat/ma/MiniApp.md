@@ -2,7 +2,7 @@
 
 [[toc]]
 
-## 微信小程序获取openId,nickName,avatarUrl
+## 微信小程序获取phoneNumber,openId,nickName,avatarUrl
 
 ```java 
 
