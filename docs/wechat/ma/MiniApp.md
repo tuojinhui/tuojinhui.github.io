@@ -28,7 +28,7 @@ import javax.validation.constraints.NotNull;
 @Schema(description = "小程序登录")
 public class WxMaLoginRequest {
 
-    @Schema(description = "小程序 [wx.login] 返回的授权code码，后端用于换取sessionKey和openId等信息")
+    @Schema(description = "小程序 [wx.login]。 用户登录凭证（有效期五分钟）。开发者需要在开发者服务器后台调用 auth.code2Session，使用 code 换取 openid、unionid、session_key 等信息")
     private String code;
 
     @Valid
@@ -47,7 +47,7 @@ public class WxMaLoginRequest {
     public static class GetUserInfo {
 
         @NotBlank
-        @Schema(description = "小程序 [open-type='getUserInfo'] 返回的消息密文")
+        @Schema(description = "小程序 [open-type='getUserInfo'] 返回的加密数据")
         private String encryptedData;
 
         @NotBlank
@@ -62,7 +62,7 @@ public class WxMaLoginRequest {
     public static class GetPhoneNumber {
 
         @NotBlank
-        @Schema(description = "小程序 [open-type='getPhoneNumber'] 返回的消息密文")
+        @Schema(description = "小程序 [open-type='getPhoneNumber'] 返回的加密数据")
         private String encryptedData;
 
         @NotBlank
