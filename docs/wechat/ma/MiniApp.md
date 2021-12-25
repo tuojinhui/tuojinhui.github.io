@@ -26,7 +26,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Schema(description = "小程序登录")
-public class WechatMaLoginRequest {
+public class WxMaLoginRequest {
 
     @Schema(description = "小程序 [wx.login] 返回的授权code码，后端用于换取sessionKey和openId等信息")
     private String code;
@@ -78,8 +78,8 @@ public class WechatMaLoginRequest {
 ```java 
 
         final String code = request.getCode();
-        final WechatMaLoginRequest.GetUserInfo getUserInfo = request.getGetUserInfo();
-        final WechatMaLoginRequest.GetPhoneNumber getPhoneNumber = request.getGetPhoneNumber();
+        final WxMaLoginRequest.GetUserInfo getUserInfo = request.getGetUserInfo();
+        final WxMaLoginRequest.GetPhoneNumber getPhoneNumber = request.getGetPhoneNumber();
 
         final WxMaJscode2SessionResult wxMaJscode2SessionResult = wxMaService.jsCode2SessionInfo(code);
         final String sessionKey = wxMaJscode2SessionResult.getSessionKey();
