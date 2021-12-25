@@ -4,7 +4,91 @@
 
 ## 微信小程序获取openId,nickName,avatarUrl
 
-    微信小程序获取openId,nickName,avatarUrl
+```java 
+
+package com.common;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+/**
+ * 功能描述：
+ *
+ * @author 拓金辉
+ * @version 1.0
+ * @date 2021-10-26 15:03:01
+ */
+@Getter
+@Setter
+@Schema(description = "小程序登录")
+public class WechatMaLoginRequest {
+
+    @Schema(description = "小程序 [wx.login] 返回的授权code码，后端用于换取sessionKey和openId等信息")
+    private String code;
+
+    @Valid
+    @NotNull
+    @Schema(description = "小程序登录getUserInfo")
+    private GetUserInfo getUserInfo;
+
+    @Valid
+    @NotNull
+    @Schema(description = "小程序登录getPhoneNumber")
+    private GetPhoneNumber getPhoneNumber;
+
+    @Getter
+    @Setter
+    @Schema(description = "小程序登录getUserInfo")
+    public static class GetUserInfo {
+
+        @NotBlank
+        @Schema(description = "小程序 [open-type='getUserInfo'] 返回的消息密文")
+        private String encryptedData;
+
+        @NotBlank
+        @Schema(description = "小程序 [open-type='getUserInfo'] 返回的加密算法的初始向量")
+        private String iv;
+        
+    }
+
+    @Getter
+    @Setter
+    @Schema(description = "小程序登录getPhoneNumber")
+    public static class GetPhoneNumber {
+
+        @NotBlank
+        @Schema(description = "小程序 [open-type='getPhoneNumber'] 返回的消息密文")
+        private String encryptedData;
+
+        @NotBlank
+        @Schema(description = "小程序 [open-type='getPhoneNumber'] 返回的加密算法的初始向量")
+        private String iv;
+        
+    }
+
+}
+
+```
+
+```java 
+
+        final String code = request.getCode();
+        final WechatMaLoginRequest.GetUserInfo getUserInfo = request.getGetUserInfo();
+        final WechatMaLoginRequest.GetPhoneNumber getPhoneNumber = request.getGetPhoneNumber();
+
+        final WxMaJscode2SessionResult wxMaJscode2SessionResult = wxMaService.jsCode2SessionInfo(code);
+        final String sessionKey = wxMaJscode2SessionResult.getSessionKey();
+        final WxMaUserService userService = wxMaService.getUserService();
+        final WxMaUserInfo wxMaUserInfo = userService.getUserInfo(sessionKey, getUserInfo.getEncryptedData(), getUserInfo.getIv());
+        final WxMaPhoneNumberInfo wxMaPhoneNumberInfo = userService.getPhoneNoInfo(sessionKey, getPhoneNumber.getEncryptedData(), getPhoneNumber.getIv());
+
+
+```
 
 ## 微信小程序生成 URL Scheme 
 
