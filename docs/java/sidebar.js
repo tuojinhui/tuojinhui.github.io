@@ -27,6 +27,7 @@ module.exports = [
             '/java/java/OptionalCollection.md',
             '/java/java/DefaultFastJsonConfig.md',
             '/java/java/MapToQueryParam.md',
+            '/java/java/LuckDraw.md',
 
             '/java/java/SpringSourceCode.md'
         ]
