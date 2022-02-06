@@ -155,3 +155,12 @@ arr = [1,2,3,4];
 [arr[0], arr[1]] = [arr[1], arr[0]];
 arr = [2,1,3,4];
 ```
+
+## Chrome dino
+
+打开Chrome，进入chrome://dino/
+```js 
+
+Console控制台执行 Runner.instance_.gameOver = () => {}
+
+```
