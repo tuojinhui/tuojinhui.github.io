@@ -158,7 +158,7 @@ arr = [2,1,3,4];
 
 ## Chrome dino
 
-打开Chrome，进入 [dino](chrome://dino/)
+打开Chrome，进入[chrome://dino/](chrome://dino/)
 ```js 
 
 Console控制台执行 Runner.instance_.gameOver = () => {}
