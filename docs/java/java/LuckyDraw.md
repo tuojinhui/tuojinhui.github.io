@@ -1,4 +1,5 @@
-# 抽奖算法
+# 抽奖算法 （LuckyDraw）
+
 [[toc]]
 
 ### 根据权重随机抽奖
@@ -60,6 +61,10 @@ public class AwardsUtil {
          * 奖品id
          */
         private String id;
+         /**
+         * 活动id
+         */
+        private String actId;
         /**
          * 名称
          */
