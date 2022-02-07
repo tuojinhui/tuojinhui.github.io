@@ -28,7 +28,7 @@ module.exports = [
             '/java/java/DefaultFastJsonConfig.md',
             '/java/java/MapToQueryParam.md',
             '/java/java/LuckyDraw.md',
-            '/java/ClassLoaderLoadJar.md',
+            '/java/java/ClassLoaderLoadJar.md',
 
             '/java/java/SpringSourceCode.md'
         ]
