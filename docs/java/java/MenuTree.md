@@ -160,7 +160,7 @@
 
 ```
 
-###  
+###    
 
 TreeNode
 
@@ -347,6 +347,48 @@ public class TreeBuilder {
         System.out.println(JSON.toJSONString(nodes, SerializerFeature.WriteNullListAsEmpty, SerializerFeature.DisableCircularReferenceDetect));
 
     }
+
+}
+
+```
+
+在新增后或修改（修改当前节点父级节点或者当前节点名称）后需要进行路径修复动作
+
+```java 
+
+    /**
+     * 修复路径
+     */
+    private void fixPath(String id) {
+        final List<Category> lowerCategories = this.baseMapper.lowerRecursive(id);
+        for (Category lowerCategory : lowerCategories) {
+            final List<Category> upperCategories = this.baseMapper.upperRecursive(lowerCategory.getId());
+            Collections.reverse(upperCategories);
+            final String parentIds = upperCategories.stream().map(Category::getId).collect(Collectors.joining(DEFAULT_PATH_SPLIT));
+            final String path = upperCategories.stream().map(Category::getName).collect(Collectors.joining(DEFAULT_PATH_SPLIT));
+            this.lambdaUpdate().eq(Category::getId, lowerCategory.getId()).set(Category::getParentIds, parentIds).set(Category::getPath, path).update();
+        }
+    }
+
+```
+
+```java  
+
+public interface CategoryMapper extends BaseMapper<Category> {
+
+    @Select("WITH RECURSIVE temp AS (\n" +
+            "    SELECT * FROM category r WHERE r.id = #{id}\n" +
+            "    UNION ALL\n" +
+            "    SELECT r.* FROM category r,temp t WHERE t.parent_id = r.id\n" +
+            ")select * from temp")
+    List<Category> upperRecursive(@Param("id") String id);
+
+    @Select("WITH RECURSIVE temp AS (\n" +
+            "\tSELECT * FROM category r WHERE r.id = #{id} \n" +
+            "\tUNION ALL\n" +
+            "\tSELECT r.* FROM category r,temp t WHERE t.id = r.parent_id\n" +
+            ")select * from temp")
+    List<Category> lowerRecursive(@Param("id") String id);
 
 }
 
