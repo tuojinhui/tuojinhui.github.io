@@ -122,6 +122,15 @@
         List<String> list = Arrays.asList("111", "222", "333", "333", "222", "666", null, "");
         list.stream().filter(Objects::nonNull).sorted(Comparator.comparing(String::toString, Comparator.nullsLast(Comparator.reverseOrder()))).forEach(System.out::println);
     }
+    
+    private String _sign(Map<String, String> formParams) {
+        final String content = formParams.entrySet().stream()
+                .filter(entry -> Objects.nonNull(entry.getValue()) && !Objects.equals(entry.getKey(), "version"))
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .map(entry -> String.join("=", entry.getKey(), entry.getValue()))
+                .collect(Collectors.collectingAndThen(Collectors.joining("&"), (finisher) -> finisher + "&key=" + key));
+        return DigestUtils.md5DigestAsHex(content.getBytes(StandardCharsets.UTF_8)).toUpperCase(Locale.ROOT);
+    }
 
 ```
 
