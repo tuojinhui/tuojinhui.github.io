@@ -194,9 +194,8 @@ git --version
 ## NGINX安装
 
 ### Nginx安装
-    Nginx 一般有两个版本，分别是稳定版和开发版，本次安装选择最新稳定版。
-    下面是把最新稳定版 Nginx 安装到 /usr/local/nginx 目录下的详细步骤：
-
+    二进制编译安装，下面是把最新稳定版 Nginx 安装到 /usr/local/nginx 目录下的详细步骤：
+![img.png](img.png)
 ```shell
 
  yum install -y net-tools
@@ -225,6 +224,14 @@ git --version
  make && make install
 
 ```
+
+```shell
+
+ vim /etc/profile
+ export PATH=/usr/local/nginx/sbin:$PATH
+ source /etc/profile
+ 
+````
 
 ### Nginx指令
 ```shell
