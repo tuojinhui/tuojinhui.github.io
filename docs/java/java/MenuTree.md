@@ -266,7 +266,7 @@ public class TreeBuilder {
      */
     public <T extends TreeNode> List<T> buildTree(List<T> nodes) {
         Map<String, List<TreeNode>> groups = (nodes = c(nodes)).stream().collect(Collectors.groupingBy(TreeNode::getParentId, LinkedHashMap::new, Collectors.toList()));
-        return nodes.stream().filter(Objects::nonNull).peek(node -> node.setChildren(groups.get(node.getId()))).filter(TreeNode::getRootNode).collect(Collectors.toList());
+        return nodes.stream().filter(Objects::nonNull).peek(pnd -> pnd.setChildren(groups.get(pnd.getId()))).filter(TreeNode::getRootNode).collect(Collectors.toList());
     }
 
     /**
