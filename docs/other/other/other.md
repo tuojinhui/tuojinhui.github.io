@@ -199,41 +199,41 @@ git --version
 
 ```shell
 
-   yum install -y net-tools
-   yum install -y vim
-   yum install -y wget
-   yum install -y curl
-   yum install -y gcc-c++ zlib zlib-devel openssl openssl-devel pcre pcre-devel
+ yum install -y net-tools
+ yum install -y vim
+ yum install -y wget
+ yum install -y curl
+ yum install -y gcc-c++ zlib zlib-devel openssl openssl-devel pcre pcre-devel
 
 ```
 
 ```shell
 
-   cd ~
-   wget http://nginx.org/download/nginx-1.20.2.tar.gz
-   tar -zxvf nginx-1.20.2.tar.gz
-   cd nginx-1.20.2/
+ cd ~
+ wget http://nginx.org/download/nginx-1.20.2.tar.gz
+ tar -zxvf nginx-1.20.2.tar.gz
+ cd nginx-1.20.2/
 
 ```
 
 ```shell
 
-    ./configure --prefix=/usr/local/nginx \
-    --with-http_ssl_module \
-    --with-http_gzip_static_module
-    
-    make && make install
+ ./configure --prefix=/usr/local/nginx \
+ --with-http_ssl_module \
+ --with-http_gzip_static_module
+ 
+ make && make install
 
 ```
 
 ### Nginx指令
 ```shell
-  nginx -t
-  nginx
-  nginx -s reload
-  pkill nginx
-  nginx -V
-  nginx -v
+ nginx -t
+ nginx
+ nginx -s reload
+ pkill nginx
+ nginx -V
+ nginx -v
 ```
 
 
@@ -241,13 +241,13 @@ git --version
 
 ```shell
 
-    ./configure --prefix=/usr/local/nginx \
-    --with-http_ssl_module \
-    --with-http_gzip_static_module \
-    --with-http_stub_status_module \
-    --with-http_realip_module
-    
-    make
+ ./configure --prefix=/usr/local/nginx \
+ --with-http_ssl_module \
+ --with-http_gzip_static_module \
+ --with-http_stub_status_module \
+ --with-http_realip_module
+ 
+ make
 
 ```
 
