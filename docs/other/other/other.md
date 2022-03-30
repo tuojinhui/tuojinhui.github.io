@@ -193,69 +193,61 @@ git --version
 
 ## NGINX安装
 
-### 1.选定源码目录
-    Nginx 一般有两个版本，分别是稳定版和开发版，您可以根据您的目的来选择这两个版本的其中一个，
-    下面是把 Nginx 安装到 /opt 目录下的详细步骤：
+### Nginx安装
+    Nginx 一般有两个版本，分别是稳定版和开发版，本次安装选择最新稳定版。
+    下面是把最新稳定版 Nginx 安装到 /usr/local/nginx 目录下的详细步骤：
 
-### 2.安装PCRE库
+```shell
 
-    https://ftp.pcre.org/pub/pcre/ 下载最新的 PCRE 源码包，使用下面命令下载编译和安装 PCRE 包：
-     
-```shell script
-    cd /opt
-    wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.gz 
-    tar -zxvf pcre-8.44.tar.gz
-    cd pcre-8.44
-    ./configure
-    make
-    make install
-```
-### 3.安装ZLIB库
+   yum install -y net-tools
+   yum install -y vim
+   yum install -y wget
+   yum install -y curl
+   yum install -y gcc-c++ zlib zlib-devel openssl openssl-devel pcre pcre-devel
 
-     http://zlib.net/zlib-1.2.11.tar.gz 下载最新的 ZLIB 源码包，使用下面命令下载编译和安装 ZLIB 包：
-
-```shell script
-    cd /opt
-    wget http://zlib.net/zlib-1.2.11.tar.gz
-    tar -zxvf zlib-1.2.11.tar.gz
-    cd zlib-1.2.11
-    ./configure
-    make
-    make install
-```
-### 4.安装SSL库
-
-    https://www.openssl.org/source/openssl-1.1.1g.tar.gz 下载最新的 OPENSSL 源码包，使用下面命令下载编译和安装 OPENSSL 包：
-
-```shell script
-    cd /opt
-    wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-    tar -zxvf openssl-1.1.1g.tar.gz
-    cd openssl-1.1.1g
-    ./configure
-    make
-    make install
 ```
 
-### 5.安装NGINX
-```shell script
-    cd /opt
-    wget https://mirrors.huaweicloud.com/nginx/nginx-1.9.9.tar.gz
-    tar -zxvf other-1.18.0.tar.gz
-    cd other-1.18.0
-     
-    ./configure --sbin-path=/opt/other/other \
-    --conf-path=/opt/other/other.conf \
-    --pid-path=/opt/other/other.pid \
+```shell
+
+   cd ~
+   wget http://nginx.org/download/nginx-1.20.2.tar.gz
+   tar -zxvf nginx-1.20.2.tar.gz
+   cd nginx-1.20.2/
+
+```
+
+```shell
+
+    ./configure --prefix=/usr/local/nginx \
+    --with-http_ssl_module \
+    --with-http_gzip_static_module
+    
+    make && make install
+
+```
+
+### Nginx指令
+```shell
+  nginx -t
+  nginx
+  nginx -s reload
+  pkill nginx
+  nginx -V
+  nginx -v
+```
+
+
+### Nginx模块
+
+```shell
+
+    ./configure --prefix=/usr/local/nginx \
+    --with-http_ssl_module \
     --with-http_gzip_static_module \
     --with-http_stub_status_module \
-    --with-file-aio \
-    --with-http_realip_module \
-    --with-http_ssl_module \
-    --with-pcre=/opt/pcre-8.44 \
-    --with-zlib=/opt/zlib-1.2.11 \
-    --with-openssl=/opt/openssl-1.1.1g
-     
-    make -j2
-    make install
+    --with-http_realip_module
+    
+    make
+
 ```
+
