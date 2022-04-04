@@ -243,7 +243,6 @@ git --version
  nginx -v
 ```
 
-
 ### Nginx模块
 
 ```shell
@@ -258,3 +257,142 @@ git --version
 
 ```
 
+### Nginx主配置
+```shell
+
+#user  nobody;
+user  root;
+worker_processes  auto;
+worker_rlimit_nofile 65535;
+
+error_log  logs/error.log  notice;
+error_log  logs/error.log  info;
+
+pid        logs/nginx.pid;
+
+events {
+    worker_connections  65535;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    client_max_body_size 4096M;
+    keepalive_timeout  65;
+    
+    fastcgi_buffer_size 64k;
+    fastcgi_buffers 4 64k;
+    fastcgi_busy_buffers_size 128k;
+    fastcgi_temp_file_write_size 256k;
+    fastcgi_connect_timeout 300;
+    fastcgi_send_timeout 300;
+    fastcgi_read_timeout 300;
+    
+    proxy_connect_timeout 300s;
+    proxy_send_timeout 300s;
+    proxy_read_timeout 300s;
+        
+    client_header_buffer_size 1024k;
+    large_client_header_buffers 4 1024k;
+
+    # 开启gzip
+    gzip on;
+    gzip_min_length  5k;
+    # 进行压缩的文件类型。
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+    # 是否在http header中添加Vary: Accept-Encoding，建议开启
+    gzip_vary on;
+    include conf.d/*.conf;
+}
+
+```
+
+### Nginx虚拟主机(try_files)配置
+```shell
+
+server {
+
+    listen       80;
+    server_name  www.shannn.cn;
+
+    access_log /data/nginx/logs/www.oos.zone_access.log;
+    error_log /data/nginx/logs/www.oos.zone_error.log;
+
+    #添加如下内容即可防止爬虫
+    if ($http_user_agent ~* "qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot"){
+        return 403;
+    }
+
+    #### 新增规则【开始】 ####
+    #初始化变量为空
+    set $deny_spider "";
+
+    #如果请求地址中含有需要禁止抓取关键词时，将变量设置为y：
+    if ($request_uri  ~* "\?replytocom=(\d+)|\?p=(\d+)|/feed|/date|/wp-admin|comment-page-(\d+)|/go") {
+         set $deny_spider 'y';
+    }
+
+    #如果抓取的UA中含有spider或bot时，继续为变量赋值（通过累加赋值间接实现nginx的多重条件判断）
+    if ($http_user_agent ~* "spider|bot") {
+        set $deny_spider "${deny_spider}es";
+    }
+
+     #当满足以上2个条件时，则返回404，符合搜索引擎死链标准
+     if ($deny_spider = 'yes') {
+         return 403; #如果是删除已收录的，则可以返回404
+         break;
+     }
+
+    # 客户端用不缓存html配置
+    set $no_cache_html_params "private, no-store, no-cache, must-revalidate, proxy-revalidate";
+
+    # 客户端根目录
+    root /data/www/oos.zone;
+
+    # www.oos.zone
+    location / {
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+}
+
+```
+
+### Nginx虚拟主机(proxy_pass)配置
+```shell
+
+server {
+
+   listen       80;
+   listen  [::]:80;
+   server_name  localhost;
+
+   # 收银台
+   location /cashier {
+      proxy_pass http://cashier-web-svc:80;
+   }
+
+   # 优惠券
+   location /coupon {
+      proxy_pass http://coupon-web-svc:80;
+   }
+
+   # 微信公众号通用授权
+   location ~ MP_verify_(.*).txt {
+      return 200 $1;
+   }
+   
+}
+
+```
