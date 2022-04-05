@@ -195,7 +195,7 @@ git --version
 
 ### Nginx安装
     二进制编译安装，下面是把最新稳定版 Nginx 安装到 /usr/local/nginx 目录下的详细步骤：
-![img.png](img.png)
+![Image](./nginx.png)
 ```shell
 
  yum install -y net-tools
