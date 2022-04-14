@@ -180,54 +180,45 @@ import java.util.List;
  * <p>
  * 树节点
  */
-@Data
-@Accessors(chain = true)
 public abstract class TreeNode {
 
     /**
-     * 方法描述：节点ID
-     *
-     * @return java.lang.String
-     *
-     * @author 拓金辉
-     * @date 2021-07-12 15:36:50
+     * 当前节点id
      */
     public abstract String getId();
 
     /**
-     * 方法描述：父级ID
-     *
-     * @return java.lang.String
-     *
-     * @author 拓金辉
-     * @date 2021-07-12 15:38:11
+     * 父级节点id
      */
     public abstract String getParentId();
 
     /**
      * 是否根节点
      */
-    @JSONField(ordinal = Integer.MAX_VALUE - 2)
+    @Getter
+    @JSONField(ordinal = Integer.MAX_VALUE - 3)
     private Boolean rootNode;
 
     /**
      * 是否叶子节点
      **/
-    @JSONField(ordinal = Integer.MAX_VALUE - 1)
+    @Getter
+    @JSONField(ordinal = Integer.MAX_VALUE - 2)
     private Boolean leafNode;
 
     /**
      * 子节点数据
      **/
-    @JSONField(ordinal = Integer.MAX_VALUE)
+    @Getter
+    @JSONField(ordinal = Integer.MAX_VALUE - 1)
     private List<TreeNode> children;
 
     /**
      * 设置子节点数据
      **/
-    public void setChildren(List<TreeNode> children) {
+    protected void setChildren(List<TreeNode> children) {
         this.children = children;
-        this.rootNode = String.valueOf(0).equals(getParentId());
+        this.rootNode = Objects.equals("0", getParentId());
         this.leafNode = children == null || children.size() == 0;
     }
 
@@ -257,12 +248,10 @@ import java.util.stream.Collectors;
 public class TreeBuilder {
 
     /**
-     * 方法描述：构建树
+     * 方法描述：构建树形数据
      *
      * @param nodes 节点数据
      * @return java.util.List<TreeNode>
-     * @author 拓金辉
-     * @date 2021-07-12 15:38:42
      */
     public <T extends TreeNode> List<T> buildTree(List<T> nodes) {
         Map<String, List<TreeNode>> groups = (nodes = c(nodes)).stream().collect(Collectors.groupingBy(TreeNode::getParentId, LinkedHashMap::new, Collectors.toList()));
@@ -274,10 +263,8 @@ public class TreeBuilder {
      *
      * @param c 集合数据
      * @return java.util.List<L>
-     * @author 拓金辉
-     * @date 2021-07-07 15:34:18
      */
-    private static <L> List<L> c(List<L> c) {
+    private <L> List<L> c(List<L> c) {
         return Optional.ofNullable(c).orElseGet(Collections::emptyList);
     }
 
